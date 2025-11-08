@@ -17,7 +17,7 @@
     "jobTitle": "Content & Marketing Strategist",
     "description": "Content and marketing strategist passionate about building communities and leading with purpose. As Content Manager for The Chosen in Brazil, I've helped grow our social media audience to over 3 million followers by combining data-driven campaigns, creative storytelling and a deep understanding of what truly engages people.",
     "url": "https://www.matheushoracio.com.br/",
-    "image": "https://www.matheushoracio.com.br/matheus-horacio.jpg",
+    "image": "https://raw.githubusercontent.com/matheus-horacio/matheus-horacio.github.io/refs/heads/main/matheus-horacio.jpg",
     "worksFor": {
       "@type": "Organization",
       "name": "The Chosen Brasil",
@@ -34,7 +34,7 @@
   }
   </script>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -44,116 +44,65 @@
 
     :root {
       --teal: #01b8af;
-      --teal-dark: #00a59d;
-      --bg: #0a0e27;
-      --text: #ffffff;
-      --muted: #94a3b8;
-      --card: rgba(15, 23, 42, 0.6);
-      --accent: #3b82f6;
+      --teal-soft: #4ecdc4;
+      --sand: #f4ead5;
+      --cream: #fef9f0;
+      --charcoal: #2d3748;
+      --warm-gray: #6b7280;
+      --text: #1a202c;
     }
 
     body {
-      background: var(--bg);
+      background: var(--cream);
       font-family: "Inter", sans-serif;
       color: var(--text);
+      line-height: 1.6;
       overflow-x: hidden;
-      position: relative;
     }
 
-    /* Animated gradient background */
-    .bg-gradient {
+    /* Texturas e profundidade sutil */
+    body::before {
+      content: '';
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
-    }
-
-    .bg-gradient::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(1, 184, 175, 0.15) 0%, transparent 50%);
-      animation: rotate 20s linear infinite;
-    }
-
-    .bg-gradient::after {
-      content: '';
-      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       background: 
-        radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(1, 184, 175, 0.1) 0%, transparent 50%);
-      animation: pulse 8s ease-in-out infinite;
-    }
-
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 0.5; }
-      50% { opacity: 1; }
-    }
-
-    /* Floating particles */
-    .particle {
-      position: fixed;
-      width: 3px;
-      height: 3px;
-      background: rgba(1, 184, 175, 0.5);
-      border-radius: 50%;
+        radial-gradient(circle at 30% 20%, rgba(1, 184, 175, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(1, 184, 175, 0.05) 0%, transparent 50%);
       pointer-events: none;
-      z-index: 1;
-      animation: float 15s infinite ease-in-out;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+      z-index: 0;
     }
 
     .container {
       position: relative;
-      z-index: 2;
+      z-index: 1;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 40px 20px;
+      padding: 60px 24px;
     }
 
     main {
-      background: var(--card);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 32px;
-      padding: 80px 60px;
-      max-width: 900px;
+      max-width: 840px;
       width: 100%;
-      position: relative;
-      overflow: hidden;
+      background: white;
+      border-radius: 8px;
       box-shadow: 
-        0 20px 60px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      animation: fadeInUp 1s ease-out;
+        0 1px 3px rgba(0, 0, 0, 0.05),
+        0 20px 50px rgba(0, 0, 0, 0.04);
+      padding: 80px 70px;
+      position: relative;
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-out 0.2s forwards;
     }
 
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
       }
       to {
         opacity: 1;
@@ -161,62 +110,39 @@
       }
     }
 
-    /* Glowing border effect */
+    /* Detalhe sutil na borda superior */
     main::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      bottom: 0;
-      border-radius: 32px;
-      padding: 2px;
-      background: linear-gradient(135deg, var(--teal), var(--accent), var(--teal));
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      opacity: 0.3;
-      animation: glow 3s ease-in-out infinite;
-    }
-
-    @keyframes glow {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 0.6; }
+      height: 4px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-soft));
+      border-radius: 8px 8px 0 0;
     }
 
     .profile-section {
       text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 56px;
     }
 
     .img-wrapper {
       position: relative;
       display: inline-block;
-      margin-bottom: 30px;
-    }
-
-    .img-wrapper::before {
-      content: '';
-      position: absolute;
-      top: -10px;
-      left: -10px;
-      right: -10px;
-      bottom: -10px;
-      background: linear-gradient(135deg, var(--teal), var(--accent));
-      border-radius: 50%;
-      z-index: -1;
-      animation: rotate 8s linear infinite;
+      margin-bottom: 32px;
     }
 
     img {
-      width: 160px;
-      height: 160px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid var(--bg);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-      transition: transform 0.3s ease;
+      border: 4px solid white;
+      box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.07),
+        0 0 0 1px rgba(0, 0, 0, 0.04);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     .img-wrapper:hover img {
@@ -224,125 +150,111 @@
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-family: "Crimson Pro", serif;
+      font-size: 2.75rem;
+      font-weight: 600;
       margin-bottom: 12px;
-      font-weight: 800;
-      background: linear-gradient(135deg, #ffffff 0%, var(--teal) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: fadeIn 1s ease-out 0.2s both;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      color: var(--charcoal);
+      letter-spacing: -0.02em;
     }
 
     .subtitle {
-      font-size: 1.25rem;
+      font-size: 1.125rem;
       color: var(--teal);
-      font-weight: 600;
-      margin-bottom: 30px;
-      animation: fadeIn 1s ease-out 0.3s both;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      color: var(--warm-gray);
+      font-style: italic;
+      margin-bottom: 0;
     }
 
     .content {
-      max-width: 700px;
+      max-width: 660px;
       margin: 0 auto;
     }
 
     p {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: var(--muted);
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      color: var(--charcoal);
       margin-bottom: 24px;
-      animation: fadeIn 1s ease-out 0.4s both;
     }
 
     .highlight {
       color: var(--teal);
       font-weight: 600;
       text-decoration: none;
-      position: relative;
-      transition: color 0.3s ease;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease;
     }
 
-    .highlight::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 100%;
+    .highlight:hover {
+      border-bottom-color: var(--teal);
+    }
+
+    /* Separador visual sutil */
+    .divider {
+      width: 60px;
       height: 2px;
-      background: var(--teal);
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.3s ease;
+      background: linear-gradient(90deg, transparent, var(--teal-soft), transparent);
+      margin: 48px auto;
+      opacity: 0.4;
     }
 
-    .highlight:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
+    .philosophy {
+      background: var(--sand);
+      border-left: 3px solid var(--teal);
+      padding: 32px 40px;
+      border-radius: 4px;
       margin: 40px 0;
-      animation: fadeIn 1s ease-out 0.5s both;
+      position: relative;
     }
 
-    .stat-card {
-      background: rgba(1, 184, 175, 0.1);
-      border: 1px solid rgba(1, 184, 175, 0.2);
-      border-radius: 16px;
-      padding: 24px;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-5px);
-      background: rgba(1, 184, 175, 0.15);
-      box-shadow: 0 10px 30px rgba(1, 184, 175, 0.2);
-    }
-
-    .stat-number {
-      font-size: 2rem;
-      font-weight: 800;
+    .philosophy::before {
+      content: '"';
+      position: absolute;
+      top: 20px;
+      left: 16px;
+      font-family: "Crimson Pro", serif;
+      font-size: 4rem;
       color: var(--teal);
-      margin-bottom: 8px;
+      opacity: 0.15;
+      line-height: 1;
     }
 
-    .stat-label {
-      font-size: 0.9rem;
-      color: var(--muted);
-      font-weight: 500;
+    .philosophy p {
+      margin: 0;
+      font-size: 1.125rem;
+      font-style: italic;
+      color: var(--charcoal);
+      position: relative;
+      z-index: 1;
     }
 
     .cta {
-      margin-top: 50px;
+      margin-top: 56px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 16px;
-      animation: fadeIn 1s ease-out 0.6s both;
     }
 
     .btn {
       padding: 14px 32px;
-      border-radius: 50px;
+      border-radius: 6px;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 0.9375rem;
       text-decoration: none;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      position: relative;
+      overflow: hidden;
     }
 
     .btn::before {
@@ -355,10 +267,10 @@
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.2);
       transform: translate(-50%, -50%);
-      transition: width 0.6s, height 0.6s;
+      transition: width 0.5s, height 0.5s;
     }
 
-    .btn:hover::before {
+    .btn:active::before {
       width: 300px;
       height: 300px;
     }
@@ -369,57 +281,59 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+      background: var(--teal);
       color: white;
-      box-shadow: 0 10px 30px rgba(1, 184, 175, 0.3);
+      box-shadow: 0 4px 12px rgba(1, 184, 175, 0.25);
     }
 
     .btn-primary:hover {
-      box-shadow: 0 15px 40px rgba(1, 184, 175, 0.4);
+      background: var(--teal-soft);
+      box-shadow: 0 6px 16px rgba(1, 184, 175, 0.3);
       transform: translateY(-2px);
     }
 
     .btn-outline {
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid #e5e7eb;
+      color: var(--charcoal);
+      background: white;
     }
 
     .btn-outline:hover {
       border-color: var(--teal);
-      background: rgba(1, 184, 175, 0.1);
+      color: var(--teal);
+      background: rgba(1, 184, 175, 0.02);
       transform: translateY(-2px);
     }
 
     footer {
       text-align: center;
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-top: 60px;
-      padding-top: 30px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      animation: fadeIn 1s ease-out 0.7s both;
+      font-size: 0.875rem;
+      color: var(--warm-gray);
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid #f3f4f6;
     }
 
+    /* Responsividade */
     @media (max-width: 768px) {
       main {
-        padding: 60px 30px;
+        padding: 60px 32px;
       }
 
       h1 {
-        font-size: 2rem;
+        font-size: 2.25rem;
       }
 
       .subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem;
       }
 
       p {
         font-size: 1rem;
       }
 
-      .stats {
-        grid-template-columns: 1fr;
+      .philosophy {
+        padding: 28px 32px;
       }
 
       .btn {
@@ -427,12 +341,25 @@
         justify-content: center;
       }
     }
+
+    @media (max-width: 480px) {
+      main {
+        padding: 48px 24px;
+      }
+
+      h1 {
+        font-size: 1.875rem;
+      }
+
+      .philosophy::before {
+        font-size: 3rem;
+        left: 12px;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <div class="bg-gradient"></div>
-
   <div class="container">
     <main>
       <div class="profile-section">
@@ -441,35 +368,31 @@
         </div>
         <h1>Matheus Horácio</h1>
         <div class="subtitle">Content & Marketing Strategist</div>
+        <p class="tagline">Mais dados. Menos achismos.</p>
       </div>
 
       <div class="content">
-        <p>Apaixonado por <strong>construir comunidades</strong> e liderar com propósito, transformo visão em execução e engajamento em conexão duradoura.</p>
+        <p>Não acredito em fórmulas mágicas ou crescimentos virais acidentais. Acredito em entender profundamente quem são as pessoas do outro lado da tela — o que as move, o que as faz parar de rolar o feed, o que as faz querer fazer parte de algo maior.</p>
 
-        <p>Como gestor de conteúdo de <a href="https://osescolhidos.tv/" class="highlight" target="_blank">The Chosen Brasil</a>, ajudei a série a alcançar resultados extraordinários, unindo campanhas orientadas por dados, storytelling criativo e uma compreensão profunda do que realmente conecta as pessoas.</p>
+        <p>Como gestor de conteúdo de <a href="https://osescolhidos.tv/" class="highlight" target="_blank">The Chosen Brasil</a>, tive o privilégio de construir uma comunidade que ultrapassa números. Cada campanha foi pensada não para viralizar, mas para ressoar. Cada decisão estratégica equilibrou dados com empatia, performance com propósito.</p>
 
-        <div class="stats">
-          <div class="stat-card">
-            <div class="stat-number">3M+</div>
-            <div class="stat-label">Seguidores Alcançados</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">∞</div>
-            <div class="stat-label">Estratégias Criativas</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Dedicação</div>
-          </div>
+        <div class="divider"></div>
+
+        <div class="philosophy">
+          <p>O melhor marketing não parece marketing. Parece uma conversa entre pessoas que se importam com as mesmas coisas.</p>
         </div>
 
-        <p>Especializado em <strong>estratégia multicanal</strong>, <strong>liderança de equipe</strong> e <strong>criação de conteúdo</strong> que gera impacto real.</p>
+        <div class="divider"></div>
 
-        <p>📅 Minha agenda está aberta para <strong>palestras, eventos e colaborações.</strong></p>
+        <p>Minha abordagem combina análise rigorosa de métricas com sensibilidade editorial — porque números revelam padrões, mas só as histórias criam conexões duradouras. Lidero equipes não com autoridade, mas com clareza de visão e abertura para aprender junto.</p>
+
+        <p>Se você está buscando alguém que entende tanto de ROI quanto de nuances humanas, que sabe estruturar campanhas multicanal sem perder a autenticidade, ou que simplesmente acredita que é possível fazer marketing que as pessoas realmente <em>querem</em> ver — vamos conversar.</p>
+
+        <p style="margin-top: 40px; font-weight: 600;">📅 Disponível para palestras e workshops</p>
 
         <div class="cta">
-          <a class="btn btn-primary" href="mailto:mateus@thechosen.tv">
-            <span>✉ Entrar em contato</span>
+          <a class="btn btn-primary" href="mailto:matheus@thechosen.tv">
+            <span>Iniciar conversa</span>
           </a>
           <a class="btn btn-outline" href="https://www.linkedin.com/in/matheushoracio/" target="_blank">
             <span>LinkedIn</span>
@@ -479,38 +402,9 @@
           </a>
         </div>
 
-        <footer>© 2025 Matheus Horácio — Todos os direitos reservados</footer>
+        <footer>© 2025 Matheus Horácio</footer>
       </div>
     </main>
   </div>
-
-  <script>
-    // Criar partículas flutuantes
-    function createParticles() {
-      const particleCount = 30;
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 15 + 's';
-        particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-        document.body.appendChild(particle);
-      }
-    }
-
-    createParticles();
-
-    // Efeito parallax suave no mouse
-    document.addEventListener('mousemove', (e) => {
-      const cards = document.querySelectorAll('.stat-card');
-      const x = (e.clientX / window.innerWidth - 0.5) * 20;
-      const y = (e.clientY / window.innerHeight - 0.5) * 20;
-      
-      cards.forEach((card, index) => {
-        const speed = (index + 1) * 0.5;
-        card.style.transform = `translateX(${x * speed}px) translateY(${y * speed}px)`;
-      });
-    });
-  </script>
 </body>
 </html>
