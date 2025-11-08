@@ -1,204 +1,137 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Matheus Horácio — Content & Marketing Strategist</title>
-  <meta name="description" content="Content & Marketing Strategist. Content Manager for The Chosen Brasil. Data-driven growth, community building, and storytelling that converts." />
-  <link rel="canonical" href="https://www.matheushoracio.com.br/" />
-  <link rel="me" href="https://www.wikidata.org/wiki/Q136735831" />
-  <link rel="icon" href="favicon.jpg" type="image/x-icon" />
-  <meta name="theme-color" content="#01b8af" />
+  <meta name="description" content="Olá! Sou Matheus Horácio, gestor de conteúdo e redes sociais de The Chosen Brasil. Minha agenda está aberta para palestras, eventos e colaborações.">
+  <link rel="canonical" href="https://www.matheushoracio.com.br/">
+  <link rel="icon" href="favicon.jpg" type="image/x-icon">
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="profile" />
-  <meta property="og:title" content="Matheus Horácio — Content & Marketing Strategist" />
-  <meta property="og:description" content="Content Manager for The Chosen Brasil. Data-driven growth, community building, and storytelling that converts." />
-  <meta property="og:image" content="https://www.matheushoracio.com.br/matheus-horacio.jpg" />
-  <meta property="og:url" content="https://www.matheushoracio.com.br" />
-  <meta property="og:locale" content="en_US" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Matheus Horácio — Content & Marketing Strategist" />
-  <meta name="twitter:description" content="Content Manager for The Chosen Brasil. Data-driven growth, community building, and storytelling that converts." />
-  <meta name="twitter:image" content="https://www.matheushoracio.com.br/matheus-horacio.jpg" />
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-  <style>
-    :root{
-      --teal:#01b8af; --ink:#0f172a; --muted:#64748b; --bg:#f6f8f9; --card:#ffffff;
-      --ring:rgba(1,184,175,.25); --shadow:0 10px 30px rgba(15,23,42,.08); --radius:18px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
-    .wrap{max-width:920px;margin:48px auto;padding:0 20px}
-    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:48px 40px}
-    .center{text-align:center}
-    .avatar{width:128px;height:128px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 18px;box-shadow:0 8px 24px rgba(0,0,0,.12)}
-    h1{font-size:2.1rem;line-height:1.2;margin:6px 0 6px}
-    .subtitle{color:var(--muted);font-weight:600;margin:0 0 10px}
-    .lead{max-width:800px;margin:14px auto;color:#334155}
-    .badges{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:22px 0 8px}
-    .badge{background:#ecfeff;border:1px solid var(--ring);color:#0c4a6e;padding:6px 10px;border-radius:999px;font-weight:600;font-size:.9rem}
-    .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:24px 0 8px}
-    .btn{appearance:none;border:0;cursor:pointer;border-radius:999px;padding:10px 18px;font-weight:600;text-decoration:none;display:inline-flex;gap:8px;align-items:center}
-    .btn-primary{background:var(--teal);color:#fff;box-shadow:0 6px 18px rgba(1,184,175,.25)}
-    .btn-outline{background:#ffffff;border:1px solid #e2e8f0;color:#0f172a}
-    .grid{display:grid;gap:18px}
-    @media (min-width:880px){.grid-2{grid-template-columns:1.1fr .9fr}}
-    .section{margin-top:26px;padding-top:8px}
-    .h2{font-size:1.2rem;color:#0f766e;font-weight:700;margin:4px 0 12px}
-    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:10px 0 4px}
-    .kpi{background:#f8fafc;border:1px solid #e6edf2;border-radius:14px;padding:14px;text-align:center}
-    .kpi strong{display:block;font-size:1.25rem}
-    .pillset{display:flex;flex-wrap:wrap;gap:10px}
-    .pill{background:#f1f5f9;border:1px solid #e2e8f0;color:#0f172a;border-radius:999px;padding:6px 10px;font-weight:600}
-    .list{padding-left:18px;margin:8px 0}
-    .list li{margin:8px 0}
-    .media a{color:#0f172a;text-decoration:none;border-bottom:1px dashed var(--teal)}
-    footer{color:#64748b;text-align:center;margin:26px 0}
-    .divider{height:1px;background:#eef2f7;margin:18px 0}
-  </style>
-
-  <!-- Structured Data -->
+  <!-- Dados estruturados (para Knowledge Panel) -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "@id":"https://www.matheushoracio.com.br/#matheus",
-    "name":"Matheus Horácio",
-    "alternateName":"Matheus Horacio",
-    "image":"https://www.matheushoracio.com.br/matheus-horacio.jpg",
-    "jobTitle":"Content & Marketing Strategist",
-    "description":"Content Manager for The Chosen Brasil. Data-driven campaigns, community building and creative storytelling.",
-    "url":"https://www.matheushoracio.com.br/",
-    "worksFor":{"@type":"Organization","name":"The Chosen Brasil","url":"https://osescolhidos.tv/"},
-    "award":[
-      "Grew BR social audience to 3M+ followers across IG, TikTok, YouTube and Facebook",
-      "Led 3 national pre-premiere events for The Chosen in Brazil",
-      "Nationwide Christmas with The Chosen community screenings (11k institutions in 2024; scaling plan toward 20k in 2025)",
-      "Prime Video Brazil launch support for The Chosen Adventures with creator collaborations and freebies",
-      "Built editorial operating system (14 posts/week, reporting & feedback loops) improving retention",
-      "Email segmentation & automation (Mailjet/HubSpot) with 16–18% open rate baseline",
-      "WhatsApp Insider program: audience consolidation & engagement playbooks",
-      "High-profile creator collabs and media appearances; speaking & event activations (incl. Dunamiscon)"
-    ],
-    "knowsAbout":[
-      "social media strategy","community building","content marketing",
-      "creator collaborations","email marketing","analytics","campaign orchestration",
-      "notion & workflow design","stakeholder management"
-    ],
-    "skills":[
-      "growth strategy","editorial planning","copywriting","influencer relations",
-      "team leadership","creative direction","data dashboards"
-    ],
-    "contactPoint":{
-      "@type":"ContactPoint",
-      "contactType":"business",
-      "email":"mailto:mateus@thechosen.tv",
-      "availableLanguage":["en","pt"]
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Matheus Horácio",
+    "alternateName": "Matheus Horacio",
+    "jobTitle": "Content & Marketing Strategist",
+    "description": "Content and marketing strategist passionate about building communities and leading with purpose. As Content Manager for The Chosen in Brazil, I’ve helped grow our social media audience to over 3 million followers by combining data-driven campaigns, creative storytelling and a deep understanding of what truly engages people.",
+    "url": "https://www.matheushoracio.com.br/",
+    "image": "https://www.matheushoracio.com.br/matheus-horacio.jpg",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "The Chosen Brasil",
+      "url": "https://osescolhidos.tv/"
     },
-    "sameAs":[
+    "sameAs": [
       "https://www.wikidata.org/wiki/Q136735831",
       "https://www.linkedin.com/in/matheushoracio/",
       "https://www.instagram.com/matheus.horacio/"
-    ]
+    ],
+    "email": "mailto:mateus@thechosen.tv",
+    "nationality": "Brazilian",
+    "knowsLanguage": ["Portuguese", "English"]
   }
   </script>
+
+  <!-- Estilo -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --teal: #01b8af;
+      --bg: #f7f9fa;
+      --text: #1e293b;
+      --muted: #64748b;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    main {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      padding: 60px 40px;
+      max-width: 720px;
+      text-align: center;
+    }
+    img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .highlight { color: var(--teal); font-weight: 600; }
+    .cta {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    .btn {
+      padding: 10px 22px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+    .btn-primary {
+      background: var(--teal);
+      color: white;
+      box-shadow: 0 4px 12px rgba(1,184,175,0.25);
+    }
+    .btn-primary:hover { background: #00998f; }
+    .btn-outline {
+      border: 1px solid #e2e8f0;
+      color: var(--text);
+    }
+    footer {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 40px;
+    }
+  </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <main class="card">
-      <header class="center">
-        <img class="avatar" src="matheus-horacio.jpg" alt="Matheus Horácio headshot" />
-        <h1>Matheus Horácio</h1>
-        <p class="subtitle">Content & Marketing Strategist</p>
-        <p class="lead">
-          I drive <strong>data-informed growth</strong>, <strong>community building</strong> and
-          <strong>storytelling that converts</strong>. Currently Content Manager for
-          <a href="https://osescolhidos.tv/" target="_blank" rel="noopener">The Chosen</a> in Brazil.
-        </p>
-
-        <div class="badges">
-          <span class="badge">3M+ social followers (BR)</span>
-          <span class="badge">3 national pre-premieres</span>
-          <span class="badge">Multi-channel campaigns</span>
-        </div>
-
-        <div class="cta">
-          <a class="btn btn-primary" href="mailto:mateus@thechosen.tv">Contact by Email</a>
-          <a class="btn btn-outline" href="https://www.linkedin.com/in/matheushoracio/" target="_blank" rel="noopener">View full profile on LinkedIn</a>
-          <a class="btn btn-outline" href="https://www.instagram.com/matheus.horacio/" target="_blank" rel="noopener">Instagram</a>
-        </div>
-      </header>
-
-      <div class="divider"></div>
-
-      <section class="grid grid-2 section">
-        <div>
-          <h2 class="h2">Summary</h2>
-          <p>
-            I help brands turn vision into execution and engagement into long-term connection.
-            I orchestrate campaigns across social, email, video and events — balancing creativity
-            with analytics to ship work that moves people and the needle.
-          </p>
-
-          <h2 class="h2">Core Skills</h2>
-          <div class="pillset">
-            <span class="pill">Social Strategy</span><span class="pill">Community Building</span>
-            <span class="pill">Editorial Systems</span><span class="pill">Influencer Collabs</span>
-            <span class="pill">Email & CRM</span><span class="pill">Analytics & Reporting</span>
-            <span class="pill">Team Leadership</span><span class="pill">Creative Direction</span>
-          </div>
-
-          <h2 class="h2">Selected Achievements</h2>
-          <ul class="list">
-            <li><strong>3M+ social followers</strong> grown/managed across BR channels for The Chosen.</li>
-            <li><strong>3 national pre-premieres</strong> led with creator & partner activations.</li>
-            <li><strong>Christmas with The Chosen</strong>: 11k institutions in 2024; scale plan toward 20k in 2025.</li>
-            <li><strong>The Chosen Adventures x Prime Video BR</strong>: collabs, promos & community seeding.</li>
-            <li><strong>Editorial OS</strong>: 14 posts/week, weekly reporting, feedback loops (“errors & super acertos”).</li>
-            <li><strong>Email ops</strong>: segmentation & automations (Mailjet/HubSpot), 16–18% OR baseline.</li>
-            <li><strong>WhatsApp Insider</strong>: consolidation strategy and engagement playbooks.</li>
-            <li><strong>Speaking & events</strong>: stage moments and large-scale activations (incl. Dunamiscon).</li>
-          </ul>
-        </div>
-
-        <div>
-          <h2 class="h2">Experience</h2>
-          <div class="kpis">
-            <div class="kpi"><strong>The Chosen Brasil</strong><span>Content Manager</span></div>
-            <div class="kpi"><strong>Multi-channel</strong><span>IG • TT • YT • Email</span></div>
-            <div class="kpi"><strong>Growth</strong><span>Data-driven & creative</span></div>
-          </div>
-          <p style="margin-top:10px">
-            Ownership of BR content strategy, cross-platform campaigns, editorial calendar,
-            creator relations and community programs — partnering with global HQ and LATAM teams.
-          </p>
-
-          <h2 class="h2">Selected Media</h2>
-          <ul class="list media">
-            <li>🎙️ <a href="https://www.instagram.com/reel/DHHmhbQNp9h/" target="_blank" rel="noopener">Interview — Gospel Channel Brasil</a></li>
-            <li>🎙️ <a href="https://youtu.be/CnSxRg4hOmE?si=aU1E7UbsM1ICR3dr" target="_blank" rel="noopener">Interview — Santo Talk</a></li>
-            <li>🎙️ <a href="https://youtu.be/QbWesSc60TQ?si=UKW45IWjmcxDypma" target="_blank" rel="noopener">Interview — Bacon Podcast</a></li>
-          </ul>
-        </div>
-      </section>
-
-      <div class="divider"></div>
-
-      <section class="center section">
-        <p class="lead" style="margin-top:0">Open to consulting, collaborations and speaking invites.</p>
-        <div class="cta">
-          <a class="btn btn-primary" href="mailto:mateus@thechosen.tv">Let’s work together</a>
-          <a class="btn btn-outline" href="https://www.linkedin.com/in/matheushoracio/" target="_blank" rel="noopener">Connect on LinkedIn</a>
-        </div>
-      </section>
-    </main>
-
-    <footer>© 2025 Matheus Horácio — All rights reserved</footer>
-  </div>
+  <main>
+    <img src="matheus-horacio.jpg" alt="Matheus Horácio">
+    <h1>Olá! Sou Matheus Horácio 👋</h1>
+    <p>
+      <strong>Content & Marketing Strategist</strong> apaixonado por construir comunidades e liderar com propósito.<br>
+      Como gestor de conteúdo de <span class="highlight">The Chosen Brasil</span>, ajudei a série a alcançar mais de 3 milhões de seguidores, unindo campanhas orientadas por dados, storytelling criativo e uma compreensão profunda do que realmente conecta as pessoas.
+    </p>
+    <p>
+      Tenho experiência em estratégia multicanal, liderança de equipe e criação de conteúdo — transformando visão em execução e engajamento em conexão duradoura.<br><br>
+      📅 Minha agenda está aberta para <strong>palestras, eventos e colaborações.</strong>
+    </p>
+    <div class="cta">
+      <a class="btn btn-primary" href="mailto:mateus@thechosen.tv">Entrar em contato</a>
+      <a class="btn btn-outline" href="https://www.linkedin.com/in/matheushoracio/" target="_blank">LinkedIn</a>
+      <a class="btn btn-outline" href="https://www.instagram.com/matheus.horacio/" target="_blank">Instagram</a>
+    </div>
+    <footer>© 2025 Matheus Horácio — Todos os direitos reservados</footer>
+  </main>
 </body>
 </html>
