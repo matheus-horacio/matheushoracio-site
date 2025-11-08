@@ -4,64 +4,128 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Matheus Horácio — Gerente de Conteúdo (The Chosen Brasil)</title>
-<meta name="description" content="Gerente de Conteúdo e Social Media de The Chosen Brasil. Contato, redes sociais e entrevistas.">
+<meta name="description" content="Gerente de Conteúdo e Social Media de The Chosen Brasil. Portfólio, entrevistas e presença digital.">
 <link rel="canonical" href="https://www.matheushoracio.com.br/">
+
+<!-- Fonte moderna -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
   :root {
     --teal:#01b8af;
+    --bg:#f6f8fa;
     --text:#222;
-    --bg:#fafafa;
-    --shadow:0 2px 8px rgba(0,0,0,.1);
+    --shadow:0 8px 24px rgba(0,0,0,.08);
   }
-  body{
-    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    color:var(--text);
+
+  body {
+    margin:0;
     background:var(--bg);
+    font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
     display:flex;
     flex-direction:column;
     align-items:center;
-    margin:0;
-    padding:40px 16px;
+    justify-content:center;
+    min-height:100vh;
   }
-  main{
-    background:#fff;
+
+  main {
+    background:rgba(255,255,255,0.8);
+    backdrop-filter:blur(8px);
+    border-radius:24px;
+    padding:60px 40px;
     box-shadow:var(--shadow);
-    border-radius:16px;
-    max-width:640px;
-    width:100%;
-    padding:40px;
+    text-align:center;
+    max-width:680px;
+    width:90%;
   }
-  img{
-    width:140px;
-    height:140px;
-    object-fit:cover;
+
+  img {
+    width:160px;
+    height:160px;
     border-radius:50%;
-    display:block;
-    margin:0 auto 16px;
-    box-shadow:0 4px 12px rgba(0,0,0,.1);
+    object-fit:cover;
+    margin-bottom:20px;
+    box-shadow:0 6px 20px rgba(0,0,0,.15);
   }
-  h1{text-align:center;margin:0 0 8px;font-size:1.8rem;}
-  p{text-align:center;margin:0 0 20px;line-height:1.6;}
-  .links{text-align:center;margin-bottom:30px;}
-  .links a{
+
+  h1 {
+    font-size:2rem;
+    font-weight:700;
+    margin:0 0 10px;
+  }
+
+  p {
+    margin:0 0 25px;
+    line-height:1.6;
+    font-size:1.05rem;
+  }
+
+  a {
     color:var(--teal);
     text-decoration:none;
-    margin:0 8px;
-    font-weight:600;
+    transition:.2s;
   }
-  h2{margin-top:30px;color:var(--teal);}
-  ul{padding-left:20px;}
-  ul li a{
+
+  a:hover {
+    opacity:0.7;
+  }
+
+  .links {
+    margin-bottom:40px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+
+  .link-btn {
+    background:var(--teal);
+    color:#fff;
+    font-weight:600;
+    padding:10px 22px;
+    border-radius:40px;
+    text-decoration:none;
+    box-shadow:0 4px 10px rgba(1,184,175,0.2);
+    transition:.2s;
+  }
+
+  .link-btn:hover {
+    background:#00998f;
+    transform:translateY(-2px);
+  }
+
+  h2 {
+    color:var(--teal);
+    font-size:1.3rem;
+    margin-bottom:10px;
+  }
+
+  ul {
+    list-style:none;
+    padding:0;
+    margin:0;
+  }
+
+  ul li {
+    margin:8px 0;
+  }
+
+  ul li a {
     color:var(--text);
+    font-weight:500;
     text-decoration:none;
   }
-  ul li a:hover{color:var(--teal);}
-  footer{
+
+  ul li a:hover {
+    color:var(--teal);
+  }
+
+  footer {
     margin-top:40px;
     font-size:.85rem;
-    color:#666;
-    text-align:center;
+    color:#888;
   }
 </style>
 </head>
@@ -69,20 +133,22 @@
 <main>
   <img src="matheus-horacio.jpg" alt="Matheus Horácio">
   <h1>Matheus Horácio</h1>
-  <p>Gerente de Conteúdo e Social Media de <a href="https://osescolhidos.tv/" target="_blank" style="color:var(--teal);text-decoration:none;">The Chosen Brasil</a>.</p>
+  <p>Gerente de Conteúdo e Social Media de <a href="https://osescolhidos.tv/" target="_blank">The Chosen Brasil</a>.</p>
 
   <div class="links">
-    <a href="https://www.instagram.com/matheus.horacio/" target="_blank">Instagram</a>·
-    <a href="https://www.linkedin.com/in/matheushoracio/" target="_blank">LinkedIn</a>·
+    <a class="link-btn" href="https://www.instagram.com/matheus.horacio/" target="_blank">Instagram</a>
+    <a class="link-btn" href="https://www.linkedin.com/in/matheushoracio/" target="_blank">LinkedIn</a>
+    <a class="link-btn" href="https://www.youtube.com/@TheChosenBrasil" target="_blank">YouTube</a>
   </div>
 
   <h2>Na mídia</h2>
   <ul>
-    <li><a href="Uhttps://www.instagram.com/reel/DHHmhbQNp9h/" target="_blank">Entrevista 1</a></li>
-    <li><a href="https://youtu.be/CnSxRg4hOmE?si=aU1E7UbsM1ICR3dr" target="_blank">Entrevista 2</a></li>
-    <li><a href="https://youtu.be/QbWesSc60TQ?si=UKW45IWjmcxDypma" target="_blank">Entrevista 3</a></li>
+    <li><a href="https://www.instagram.com/reel/DHHmhbQNp9h/" target="_blank">🎙️ Entrevista 1 — Santo Café</a></li>
+    <li><a href="https://youtu.be/CnSxRg4hOmE?si=aU1E7UbsM1ICR3dr" target="_blank">🎥 Entrevista 2 — The Chosen Brasil</a></li>
+    <li><a href="https://youtu.be/QbWesSc60TQ?si=UKW45IWjmcxDypma" target="_blank">📺 Entrevista 3 — Bastidores & Propósito</a></li>
   </ul>
+
+  <footer>© 2025 Matheus Horácio — Todos os direitos reservados</footer>
 </main>
-<footer>© 2025 Matheus Horácio — Todos os direitos reservados</footer>
 </body>
 </html>
