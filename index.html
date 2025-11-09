@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Matheus Horácio — Estrategista de Conteúdo | The Chosen Brasil</title>
-  <meta name="description" content="Gestor de Conteúdo do The Chosen Brasil. +3M de seguidores, lançamentos históricos e entrevistas com o elenco. Disponível para palestras sobre marketing digital com propósito.">
+  <meta name="description" content="Gestor de Conteúdo do The Chosen Brasil. De fã voluntário a líder de equipe. +3M de seguidores, lançamentos históricos e entrevistas com o elenco. Disponível para palestras sobre marketing digital com propósito.">
   <link rel="canonical" href="https://www.matheushoracio.com.br/">
   <link rel="icon" href="favicon.png" type="image/x-icon">
 
@@ -193,7 +193,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:wght@300;400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
     * {
@@ -203,375 +203,313 @@
     }
 
     :root {
-      --gold: #d4af37;
-      --gold-dark: #b8941f;
-      --bronze: #cd7f32;
-      --sand: #e8d5b5;
-      --sand-light: #f5ead1;
-      --charcoal: #1a1a1a;
-      --warm-black: #2a2622;
-      --cream: #faf8f3;
-      --stone: #8b7d6b;
+      /* Paleta oficial The Chosen */
+      --teal: #1a5c6b;
+      --teal-dark: #0f3d47;
+      --teal-light: #2d7a8b;
+      --sand: #d4c4a8;
+      --sand-light: #e8dcc5;
+      --cream: #f5f1e8;
+      --charcoal: #2b2520;
+      --warm-brown: #54483d;
+      --gold-accent: #c9a961;
+      --off-white: #faf8f3;
     }
 
     body {
       font-family: "Inter", sans-serif;
       color: var(--charcoal);
-      background: var(--charcoal);
+      background: var(--off-white);
       overflow-x: hidden;
       line-height: 1.6;
     }
 
-    /* ===== HERO ÉPICO (Cinematográfico) ===== */
+    /* ===== HERO (Above the Fold) ===== */
     .hero {
-      min-height: 100vh;
-      background: 
-        linear-gradient(180deg, rgba(26, 26, 26, 0.7) 0%, rgba(26, 26, 26, 0.9) 100%),
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%23342f2a" width="1920" height="1080"/><path d="M0 540 Q480 400 960 540 T1920 540 L1920 1080 L0 1080 Z" fill="%232a2622" opacity="0.5"/></svg>') center/cover;
+      min-height: 92vh;
+      background: linear-gradient(to bottom, var(--teal-dark), var(--teal));
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
-      padding: 80px 24px;
+      padding: 100px 24px 80px;
       color: white;
     }
 
-    .hero::before {
+    .hero::after {
       content: '';
       position: absolute;
-      top: 0;
+      bottom: 0;
       left: 0;
       right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      opacity: 0.3;
+      height: 120px;
+      background: linear-gradient(to bottom, transparent, var(--off-white));
     }
 
     .hero-content {
-      max-width: 900px;
-      text-align: center;
+      max-width: 1100px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
       position: relative;
       z-index: 2;
-      animation: fadeInUp 1.2s ease-out;
     }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: rgba(212, 175, 55, 0.15);
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      padding: 8px 20px;
-      border-radius: 30px;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 32px;
-      animation: glow 2s ease-in-out infinite;
-    }
-
-    @keyframes glow {
-      0%, 100% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
-      50% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); }
-    }
-
-    .hero h1 {
-      font-family: "Cinzel", serif;
-      font-size: 4rem;
+    .hero-text h1 {
+      font-family: "Libre Baskerville", serif;
+      font-size: 3.5rem;
       font-weight: 700;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
       color: white;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
       line-height: 1.1;
-      text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.5);
     }
 
-    .hero .tagline {
-      font-family: "Crimson Pro", serif;
-      font-size: 1.5rem;
-      font-weight: 300;
-      font-style: italic;
+    .hero-text .subtitle {
+      font-size: 1.25rem;
       color: var(--sand-light);
-      margin-bottom: 48px;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .hero-text .tagline {
+      font-size: 1.125rem;
+      color: var(--sand);
+      margin-bottom: 40px;
       line-height: 1.6;
+      font-style: italic;
     }
 
-    .hero-image-wrapper {
-      margin: 48px 0;
+    .hero-image {
+      text-align: center;
       position: relative;
-      display: inline-block;
     }
 
-    .hero-image-wrapper::before {
-      content: '';
-      position: absolute;
-      top: -10px;
-      left: -10px;
-      right: -10px;
-      bottom: -10px;
-      border: 2px solid var(--gold);
-      border-radius: 50%;
-      opacity: 0.3;
-      animation: pulse-ring 2s ease-out infinite;
-    }
-
-    @keyframes pulse-ring {
-      0% { transform: scale(1); opacity: 0.3; }
-      50% { transform: scale(1.05); opacity: 0.1; }
-      100% { transform: scale(1.1); opacity: 0; }
-    }
-
-    .hero img {
-      width: 200px;
-      height: 200px;
+    .hero-image img {
+      width: 280px;
+      height: 280px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid var(--gold);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-      transition: transform 0.5s ease;
+      border: 5px solid var(--sand-light);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+      transition: transform 0.4s ease;
     }
 
-    .hero img:hover {
+    .hero-image img:hover {
       transform: scale(1.05);
     }
 
-    .cta-hero {
+    .badge-stats {
+      margin-top: 32px;
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 16px 28px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .badge-stats .number {
+      font-family: "Libre Baskerville", serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold-accent);
+      display: block;
+    }
+
+    .badge-stats .label {
+      font-size: 0.9375rem;
+      color: var(--sand-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    .cta-group {
       display: flex;
       gap: 16px;
-      justify-content: center;
+      margin-top: 40px;
       flex-wrap: wrap;
-      margin-top: 48px;
     }
 
     .btn {
-      padding: 16px 40px;
-      border-radius: 4px;
+      padding: 16px 36px;
+      border-radius: 6px;
       font-weight: 600;
       font-size: 0.9375rem;
       text-decoration: none;
-      transition: all 0.4s ease;
+      transition: all 0.3s ease;
       display: inline-flex;
       align-items: center;
       gap: 10px;
       cursor: pointer;
       border: none;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      position: relative;
-      overflow: hidden;
+      white-space: nowrap;
     }
 
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      transition: width 0.6s, height 0.6s;
-    }
-
-    .btn:hover::before {
-      width: 400px;
-      height: 400px;
-    }
-
-    .btn span {
-      position: relative;
-      z-index: 1;
-    }
-
-    .btn-gold {
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    .btn-primary {
+      background: var(--gold-accent);
       color: var(--charcoal);
-      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+      box-shadow: 0 4px 14px rgba(201, 169, 97, 0.4);
     }
 
-    .btn-gold:hover {
-      box-shadow: 0 8px 28px rgba(212, 175, 55, 0.6);
+    .btn-primary:hover {
+      background: #b89550;
+      box-shadow: 0 6px 20px rgba(201, 169, 97, 0.6);
       transform: translateY(-2px);
     }
 
-    .btn-outline-gold {
-      border: 2px solid var(--gold);
-      color: var(--gold);
+    .btn-outline {
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      color: white;
       background: transparent;
     }
 
-    .btn-outline-gold:hover {
-      background: rgba(212, 175, 55, 0.1);
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: white;
       transform: translateY(-2px);
     }
 
-    /* ===== DIVIDER DECORATIVO ===== */
-    .divider-section {
-      background: var(--warm-black);
-      padding: 0;
-      position: relative;
-    }
-
-    .ornament {
-      text-align: center;
-      padding: 40px 0;
-      color: var(--gold);
-      font-size: 2rem;
-      opacity: 0.4;
-    }
-
-    /* ===== TIMELINE (Jornada) ===== */
-    .journey {
+    /* ===== ABOUT SECTION ===== */
+    .about {
+      padding: 100px 24px;
       background: var(--cream);
-      padding: 120px 24px;
-      position: relative;
+    }
+
+    .about-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .about h2 {
+      font-family: "Libre Baskerville", serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 32px;
+      color: var(--teal-dark);
+      text-align: center;
+    }
+
+    .about p {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: var(--warm-brown);
+      margin-bottom: 24px;
+    }
+
+    .highlight-box {
+      background: white;
+      border-left: 4px solid var(--teal);
+      padding: 32px 40px;
+      border-radius: 6px;
+      margin: 40px 0;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .highlight-box p {
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--charcoal);
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* ===== JORNADA (Timeline) ===== */
+    .journey {
+      padding: 100px 24px;
+      background: white;
     }
 
     .journey-header {
       text-align: center;
-      max-width: 700px;
+      max-width: 800px;
       margin: 0 auto 80px;
     }
 
     .journey-header h2 {
-      font-family: "Cinzel", serif;
-      font-size: 3rem;
-      font-weight: 600;
+      font-family: "Libre Baskerville", serif;
+      font-size: 2.75rem;
+      font-weight: 700;
       margin-bottom: 20px;
-      color: var(--charcoal);
-      position: relative;
-      display: inline-block;
-    }
-
-    .journey-header h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      color: var(--teal-dark);
     }
 
     .journey-header p {
-      font-family: "Crimson Pro", serif;
-      font-size: 1.25rem;
-      color: var(--stone);
-      margin-top: 32px;
+      font-size: 1.125rem;
+      color: var(--warm-brown);
       line-height: 1.7;
     }
 
     .timeline {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
       position: relative;
+      padding-left: 60px;
     }
 
     .timeline::before {
       content: '';
       position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 20px;
       top: 0;
       bottom: 0;
-      width: 2px;
-      background: linear-gradient(180deg, var(--gold), var(--bronze));
+      width: 3px;
+      background: var(--teal);
     }
 
     .timeline-item {
-      display: flex;
-      margin-bottom: 80px;
       position: relative;
-    }
-
-    .timeline-item:nth-child(odd) {
-      flex-direction: row;
-    }
-
-    .timeline-item:nth-child(even) {
-      flex-direction: row-reverse;
-    }
-
-    .timeline-content {
-      width: 45%;
-      background: white;
-      padding: 32px;
-      border-radius: 8px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-      position: relative;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .timeline-content:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-    }
-
-    .timeline-content h3 {
-      font-family: "Crimson Pro", serif;
-      font-size: 1.75rem;
-      font-weight: 600;
-      color: var(--charcoal);
-      margin-bottom: 12px;
-    }
-
-    .timeline-content .year {
-      color: var(--gold);
-      font-weight: 700;
-      font-size: 1rem;
-      letter-spacing: 1px;
-      margin-bottom: 16px;
-      display: block;
-    }
-
-    .timeline-content p {
-      color: var(--stone);
-      line-height: 1.7;
-      margin: 0;
+      margin-bottom: 60px;
+      padding-left: 40px;
     }
 
     .timeline-marker {
       position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 20px;
-      height: 20px;
-      background: var(--gold);
-      border: 4px solid var(--cream);
+      left: -49px;
+      top: 8px;
+      width: 18px;
+      height: 18px;
+      background: var(--gold-accent);
+      border: 4px solid white;
       border-radius: 50%;
-      box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+      box-shadow: 0 0 0 3px var(--teal);
       z-index: 2;
+    }
+
+    .timeline-year {
+      display: inline-block;
+      background: var(--teal);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.875rem;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .timeline-content h3 {
+      font-family: "Libre Baskerville", serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+    }
+
+    .timeline-content p {
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      color: var(--warm-brown);
+      margin: 0;
     }
 
     /* ===== STATS ===== */
     .stats {
-      background: var(--charcoal);
+      background: var(--teal-dark);
       padding: 80px 24px;
-      position: relative;
-    }
-
-    .stats::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      opacity: 0.3;
     }
 
     .stats-grid {
@@ -588,12 +526,11 @@
     }
 
     .stat-item h3 {
-      font-family: "Cinzel", serif;
-      font-size: 4rem;
+      font-family: "Libre Baskerville", serif;
+      font-size: 3.5rem;
       font-weight: 700;
-      color: var(--gold);
+      color: var(--gold-accent);
       margin-bottom: 12px;
-      text-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
     }
 
     .stat-item p {
@@ -604,45 +541,29 @@
       letter-spacing: 1px;
     }
 
-    /* ===== ENTREVISTAS (Grid de Vídeos) ===== */
+    /* ===== ENTREVISTAS ===== */
     .interviews {
-      background: var(--warm-black);
-      padding: 120px 24px;
-      color: white;
+      background: var(--cream);
+      padding: 100px 24px;
     }
 
     .section-header {
       text-align: center;
       max-width: 800px;
-      margin: 0 auto 80px;
+      margin: 0 auto 60px;
     }
 
     .section-header h2 {
-      font-family: "Cinzel", serif;
-      font-size: 3rem;
-      font-weight: 600;
+      font-family: "Libre Baskerville", serif;
+      font-size: 2.75rem;
+      font-weight: 700;
       margin-bottom: 20px;
-      color: var(--gold);
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-header h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      color: var(--teal-dark);
     }
 
     .section-header p {
-      font-family: "Crimson Pro", serif;
-      font-size: 1.25rem;
-      color: var(--sand-light);
-      margin-top: 32px;
+      font-size: 1.125rem;
+      color: var(--warm-brown);
       line-height: 1.7;
     }
 
@@ -650,29 +571,30 @@
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 32px;
     }
 
     .video-card {
-      background: rgba(42, 38, 34, 0.6);
-      border-radius: 12px;
+      background: white;
+      border-radius: 8px;
       overflow: hidden;
       transition: all 0.4s ease;
-      border: 1px solid rgba(212, 175, 55, 0.2);
-      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
 
     .video-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 16px 48px rgba(212, 175, 55, 0.3);
-      border-color: var(--gold);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
     }
 
     .video-thumbnail {
       position: relative;
       padding-bottom: 56.25%;
-      background: var(--charcoal);
+      background: var(--teal-dark);
       overflow: hidden;
     }
 
@@ -687,7 +609,7 @@
     }
 
     .video-card:hover .video-thumbnail img {
-      transform: scale(1.1);
+      transform: scale(1.08);
     }
 
     .play-overlay {
@@ -697,7 +619,7 @@
       transform: translate(-50%, -50%);
       width: 70px;
       height: 70px;
-      background: rgba(212, 175, 55, 0.9);
+      background: rgba(26, 92, 107, 0.9);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -706,14 +628,14 @@
     }
 
     .video-card:hover .play-overlay {
-      background: var(--gold);
+      background: var(--teal);
       transform: translate(-50%, -50%) scale(1.15);
     }
 
     .play-overlay svg {
-      width: 32px;
-      height: 32px;
-      fill: var(--charcoal);
+      width: 28px;
+      height: 28px;
+      fill: white;
       margin-left: 4px;
     }
 
@@ -722,57 +644,56 @@
     }
 
     .video-info h3 {
-      font-family: "Crimson Pro", serif;
+      font-family: "Libre Baskerville", serif;
       font-size: 1.25rem;
-      font-weight: 600;
-      color: white;
+      font-weight: 700;
+      color: var(--charcoal);
       margin-bottom: 8px;
       line-height: 1.4;
     }
 
     .video-info p {
-      color: var(--sand);
+      color: var(--warm-brown);
       font-size: 0.9375rem;
       line-height: 1.6;
       margin: 0;
     }
 
-    /* ===== APARIÇÕES (Lista Compacta) ===== */
+    /* ===== APARIÇÕES ===== */
     .appearances {
-      background: var(--cream);
-      padding: 120px 24px;
+      background: white;
+      padding: 100px 24px;
     }
 
     .appearances-list {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
       display: grid;
       gap: 16px;
     }
 
     .appearance-item {
-      background: white;
+      background: var(--cream);
       padding: 24px 32px;
-      border-radius: 8px;
-      border-left: 4px solid var(--bronze);
+      border-radius: 6px;
+      border-left: 4px solid var(--teal);
       display: flex;
       align-items: center;
       gap: 20px;
       transition: all 0.3s ease;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
 
     .appearance-item:hover {
-      border-left-color: var(--gold);
+      border-left-color: var(--gold-accent);
       transform: translateX(8px);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
     }
 
     .appearance-icon {
       width: 48px;
       height: 48px;
-      background: linear-gradient(135deg, var(--bronze), var(--gold));
-      border-radius: 8px;
+      background: var(--teal);
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -790,21 +711,20 @@
     }
 
     .appearance-info h4 {
-      font-family: "Crimson Pro", serif;
-      font-size: 1.125rem;
       font-weight: 600;
+      font-size: 1.0625rem;
       color: var(--charcoal);
       margin-bottom: 4px;
     }
 
     .appearance-info p {
-      color: var(--stone);
+      color: var(--warm-brown);
       font-size: 0.875rem;
       margin: 0;
     }
 
     .appearance-link {
-      color: var(--gold);
+      color: var(--teal);
       text-decoration: none;
       font-weight: 600;
       font-size: 0.875rem;
@@ -812,55 +732,39 @@
     }
 
     .appearance-link:hover {
-      color: var(--gold-dark);
+      color: var(--teal-dark);
     }
 
-    /* ===== CTA FINAL (Épico) ===== */
+    /* ===== CTA FINAL ===== */
     .cta-final {
-      background: 
-        linear-gradient(180deg, rgba(26, 26, 26, 0.95) 0%, rgba(26, 26, 26, 0.98) 100%),
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%23342f2a" width="1920" height="1080"/></svg>') center/cover;
-      padding: 120px 24px;
+      background: var(--teal);
+      padding: 100px 24px;
       text-align: center;
       color: white;
-      position: relative;
-    }
-
-    .cta-final::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      opacity: 0.5;
     }
 
     .cta-final h2 {
-      font-family: "Cinzel", serif;
-      font-size: 3.5rem;
+      font-family: "Libre Baskerville", serif;
+      font-size: 3rem;
       font-weight: 700;
       margin-bottom: 24px;
-      color: var(--gold);
-      text-shadow: 0 2px 12px rgba(212, 175, 55, 0.3);
+      color: var(--sand-light);
     }
 
     .cta-final p {
-      font-family: "Crimson Pro", serif;
-      font-size: 1.5rem;
-      color: var(--sand-light);
-      margin-bottom: 56px;
+      font-size: 1.25rem;
+      color: var(--sand);
+      margin-bottom: 48px;
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
-      font-style: italic;
+      line-height: 1.7;
     }
 
     .cta-buttons {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 16px;
       flex-wrap: wrap;
     }
 
@@ -869,29 +773,43 @@
       background: var(--charcoal);
       color: var(--sand);
       text-align: center;
-      padding: 48px 24px;
+      padding: 40px 24px;
       font-size: 0.875rem;
-      border-top: 1px solid rgba(212, 175, 55, 0.2);
     }
 
     footer a {
-      color: var(--gold);
+      color: var(--gold-accent);
       text-decoration: none;
       transition: color 0.3s ease;
     }
 
     footer a:hover {
-      color: white;
+      color: var(--sand-light);
     }
 
     /* ===== RESPONSIVIDADE ===== */
     @media (max-width: 968px) {
-      .hero h1 {
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        text-align: center;
+      }
+
+      .hero-text h1 {
         font-size: 2.75rem;
       }
 
-      .hero .tagline {
-        font-size: 1.25rem;
+      .cta-group {
+        justify-content: center;
+      }
+
+      .hero-image img {
+        width: 220px;
+        height: 220px;
+      }
+
+      .timeline {
+        padding-left: 0;
       }
 
       .timeline::before {
@@ -899,16 +817,11 @@
       }
 
       .timeline-item {
-        flex-direction: column !important;
         padding-left: 60px;
       }
 
-      .timeline-content {
-        width: 100%;
-      }
-
       .timeline-marker {
-        left: 20px !important;
+        left: 11px;
       }
 
       .section-header h2 {
@@ -921,11 +834,15 @@
     }
 
     @media (max-width: 640px) {
-      .hero h1 {
+      .hero {
+        padding: 80px 20px 60px;
+      }
+
+      .hero-text h1 {
         font-size: 2.25rem;
       }
 
-      .hero .tagline {
+      .hero-text .subtitle {
         font-size: 1.125rem;
       }
 
@@ -934,13 +851,14 @@
         justify-content: center;
       }
 
+      .about h2,
       .journey-header h2,
       .section-header h2 {
         font-size: 2rem;
       }
 
       .cta-final h2 {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
       }
 
       .videos-grid {
@@ -956,70 +874,102 @@
 </head>
 
 <body>
-  <!-- ===== HERO ÉPICO ===== -->
+  <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="hero-content">
-      <div class="hero-badge">✦ Gestor de Conteúdo · The Chosen Brasil ✦</div>
-      
-      <h1>Matheus Horácio</h1>
-      <p class="tagline">Onde dados encontram propósito, e propósito gera impacto</p>
-      
-      <div class="hero-image-wrapper">
-        <img src="matheus-horacio.jpg" alt="Matheus Horácio - Content Strategist">
+      <div class="hero-text">
+        <h1>Matheus Horácio</h1>
+        <div class="subtitle">Content & Marketing Strategist</div>
+        <p class="tagline">Sou movido por três frentes que me guiam em todo projeto: dados, propósito e impacto.</p>
+        
+        <div class="cta-group">
+          <a class="btn btn-primary" href="mailto:matheus@thechosen.tv">
+            <span>Agendar Palestra</span>
+          </a>
+          <a class="btn btn-outline" href="https://www.linkedin.com/in/matheushoracio/" target="_blank" rel="noopener">
+            <span>LinkedIn</span>
+          </a>
+          <a class="btn btn-outline" href="https://www.instagram.com/matheus.horacio/" target="_blank" rel="noopener">
+            <span>Instagram</span>
+          </a>
+        </div>
       </div>
 
-      <div class="cta-hero">
-        <a class="btn btn-gold" href="mailto:matheus@thechosen.tv">
-          <span>Agendar Palestra</span>
-        </a>
-        <a class="btn btn-outline-gold" href="https://www.linkedin.com/in/matheushoracio/" target="_blank" rel="noopener">
-          <span>LinkedIn</span>
-        </a>
-        <a class="btn btn-outline-gold" href="https://www.instagram.com/matheus.horacio/" target="_blank" rel="noopener">
-          <span>Instagram</span>
-        </a>
+      <div class="hero-image">
+        <img src="matheus-horacio.jpg" alt="Matheus Horácio - Content Strategist">
+        <div class="badge-stats">
+          <span class="number">+3M</span>
+          <span class="label">Seguidores Alcançados</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== DIVIDER ===== -->
-  <div class="divider-section">
-    <div class="ornament">⚜</div>
-  </div>
+  <!-- ===== ABOUT ===== -->
+  <section class="about">
+    <div class="about-container">
+      <h2>Quem sou eu</h2>
+      
+      <p>Olá! Eu sou o Matheus Horácio. Trabalho no digital há mais de uma década e, desde 2022, cuido do conteúdo de <a href="https://osescolhidos.tv/" style="color: var(--teal); text-decoration: none; font-weight: 600;" target="_blank">The Chosen Brasil</a>. Criei esta página porque gosto de compartilhar conhecimento e porque, infelizmente, pra te descobrirem, você precisa aparecer.</p>
 
-  <!-- ===== JORNADA (Timeline) ===== -->
+      <p><strong>Como gestor de conteúdo</strong> do The Chosen Brasil, ajudei a série a alcançar mais de 3 milhões de seguidores e a se tornar um fenômeno digital. Liderei os lançamentos das temporadas 3, 4 e 5, sempre equilibrando propósito e performance (e muito café e deadlines).</p>
+      
+      <p>Ah, e uma curiosidade: Já conheci e gravei com a maior parte do elenco de The Chosen (conheci Jesus, João, Mateus, Judas… e sim, tive o privilégio de entrevistá-los).</p>
+
+      <p>Como alguém que vive o mercado digital, vejo muitos projetos incríveis nascendo com as melhores intenções, mas morrendo por falta de uma boa estratégia tática. Acredito que boas intenções não bastam. Estratégias bem pensadas e executadas com clareza são o que transformam ideias em resultados reais. Dados importam, mas o que faz diferença é transformar números em decisões criativas.</p>
+
+      <div class="highlight-box">
+        <p>O melhor marketing não parece marketing. Parece uma conversa entre pessoas que acreditam nas mesmas coisas.</p>
+      </div>
+
+      <p><strong>Meu jeito de fazer marketing:</strong> Gosto de unir métricas com sensibilidade editorial, performance com propósito e humor com autenticidade. Lidero equipes com clareza, propósito e aquele equilíbrio entre "vamos bater meta" e "vamos respirar também?".</p>
+
+      <p><strong>Vamos conversar:</strong> Se você procura alguém que entende de ROI e também de gente, que cria campanhas multicanal sem perder leveza, ou que acredita que o marketing pode ser divertido e ainda assim estratégico, me chama pra sua igreja, escola, empresa ou projeto.</p>
+    </div>
+  </section>
+
+  <!-- ===== JORNADA ===== -->
   <section class="journey">
     <div class="journey-header">
-      <h2>A Jornada</h2>
-      <p>Mais de uma década construindo comunidades, contando histórias e transformando números em conexões humanas.</p>
+      <h2>Minha História no The Chosen</h2>
+      <p>De fã voluntário a gestor de conteúdo. Uma jornada construída com propósito, paixão e muito trabalho.</p>
     </div>
 
     <div class="timeline">
       <div class="timeline-item">
-        <div class="timeline-content">
-          <span class="year">2022 — Presente</span>
-          <h3>The Chosen Brasil</h3>
-          <p>Gestor de Conteúdo e Redes Sociais. Responsável pelo crescimento de +3 milhões de seguidores e pelos lançamentos históricos das Temporadas 3, 4 e 5. Entrevistei grande parte do elenco e liderei campanhas multicanal que geraram milhões de visualizações.</p>
-        </div>
         <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <span class="timeline-year">2020</span>
+          <h3>Tudo começou como fã</h3>
+          <p>Em 2020, conheci The Chosen e fiquei tão impactado com a forma humana e profunda como a série apresentava Jesus e os discípulos que eu precisava contar para todo mundo. Como sempre trabalhei no digital, me comprometi a criar algo: nasceu a página <strong>The Chosen Cenas</strong>, onde criei mais de 90 posts. Foram meus pães e peixes naquele momento. Um trabalho voluntário, movido apenas por paixão.</p>
+        </div>
       </div>
 
       <div class="timeline-item">
-        <div class="timeline-content">
-          <span class="year">2012 — 2022</span>
-          <h3>Década no Digital</h3>
-          <p>Mais de 10 anos construindo estratégias de marketing digital, liderando equipes e transformando projetos em fenômenos de engajamento. Da análise de dados à execução criativa, sempre com propósito.</p>
-        </div>
         <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <span class="timeline-year">2021</span>
+          <h3>Voltei com tudo</h3>
+          <p>Passou um ano e percebi que The Chosen ainda não havia se popularizado no Brasil como eu imaginava. Pensei: "Eu preciso voltar". E voltei com ainda mais força. Minha meta era clara: criar o maior portal sobre The Chosen da América Latina. Naquele momento, eu nunca imaginei que um dia seria contratado — pensei que no máximo me convidariam para algum evento.</p>
+        </div>
       </div>
 
       <div class="timeline-item">
-        <div class="timeline-content">
-          <span class="year">Hoje</span>
-          <h3>Palestras & Workshops</h3>
-          <p>Compartilhando conhecimento sobre marketing digital com propósito, gestão de comunidades e estratégias de conteúdo. Disponível para igrejas, escolas, empresas e projetos que buscam impacto real.</p>
-        </div>
         <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <span class="timeline-year">2022</span>
+          <h3>A virada: fui contratado</h3>
+          <p>A equipe do The Chosen me chamou e pediu para que eu fizesse parte do time fundador aqui no Brasil, ao lado de <strong>Diogenes Cavalcante</strong>, sob a direção de <strong>Julie Molina</strong>. Foi quando comecei oficialmente minha história no The Chosen Brasil. Com um time enxuto, começamos a crescer aos poucos e nos tornamos uma referência mundial.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <span class="timeline-year">Hoje</span>
+          <h3>Gestor de Conteúdo</h3>
+          <p>Hoje sou gestor de conteúdo e lidero um time de <strong>7 pessoas</strong>. Tenho aprendido muito nessa jornada — sobre liderança, estratégia, storytelling e, principalmente, sobre como construir comunidades com propósito. Liderei os lançamentos das Temporadas 3, 4 e 5, entrevistei grande parte do elenco e ajudei a construir uma audiência de mais de 3 milhões de seguidores.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1029,15 +979,15 @@
     <div class="stats-grid">
       <div class="stat-item">
         <h3>+10</h3>
-        <p>Anos de Experiência</p>
+        <p>Anos no Digital</p>
       </div>
       <div class="stat-item">
         <h3>+3M</h3>
-        <p>Seguidores Alcançados</p>
+        <p>Seguidores Construídos</p>
       </div>
       <div class="stat-item">
-        <h3>3</h3>
-        <p>Temporadas Lançadas</p>
+        <h3>7</h3>
+        <p>Pessoas na Equipe</p>
       </div>
     </div>
   </section>
@@ -1045,8 +995,8 @@
   <!-- ===== ENTREVISTAS ===== -->
   <section class="interviews">
     <div class="section-header">
-      <h2>Entrevistas Exclusivas</h2>
-      <p>Conversas profundas com o elenco de The Chosen, explorando bastidores, propósito e o impacto da série.</p>
+      <h2>Entrevistas com o Elenco</h2>
+      <p>Tive o privilégio de conversar com os atores que dão vida aos personagens de The Chosen, explorando bastidores, desafios e o impacto da série.</p>
     </div>
 
     <div class="videos-grid">
@@ -1060,7 +1010,7 @@
         </div>
         <div class="video-info">
           <h3>Davi Viegas (Tiago Menor)</h3>
-          <p>Conversa exclusiva sobre o processo criativo, desafios e impacto de interpretar um dos apóstolos em The Chosen.</p>
+          <p>Conversa exclusiva sobre o processo criativo, desafios e impacto de interpretar um dos apóstolos.</p>
         </div>
       </a>
 
@@ -1074,31 +1024,31 @@
         </div>
         <div class="video-info">
           <h3>Noah James (André)</h3>
-          <p>Bastidores da série, desafios de representar André e conexão com fãs brasileiros.</p>
+          <p>Bastidores da série e a conexão com os fãs brasileiros.</p>
         </div>
       </a>
 
       <!-- Instagram Reel -->
       <a href="https://www.instagram.com/reels/DHHmhbQNp9h/" target="_blank" rel="noopener" class="video-card">
         <div class="video-thumbnail">
-          <img src="https://scontent.cdninstagram.com/v/t51.29350-15/470622973_18484622823027163_5841732859606638815_n.jpg?stp=dst-jpg&_nc_cat=108&ccb=1-7&_nc_sid=18de74&_nc_ohc=placeholder&_nc_ht=scontent.cdninstagram.com&edm=ANQ71j8EAAAA&oh=00_placeholder&oe=placeholder" alt="Entrevista Instagram" onerror="this.src='https://via.placeholder.com/1280x720/2a2622/d4af37?text=The+Chosen+Brasil'">
+          <img src="https://scontent.cdninstagram.com/v/t51.29350-15/470622973_18484622823027163_5841732859606638815_n.jpg?stp=dst-jpg&_nc_cat=108&ccb=1-7&_nc_sid=18de74&_nc_ohc=placeholder&_nc_ht=scontent.cdninstagram.com&edm=ANQ71j8EAAAA&oh=00_placeholder&oe=placeholder" alt="Entrevista Instagram" onerror="this.src='https://via.placeholder.com/1280x720/1a5c6b/d4c4a8?text=The+Chosen+Brasil'">
           <div class="play-overlay">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
           </div>
         </div>
         <div class="video-info">
           <h3>Bastidores com Elenco</h3>
-          <p>Momentos exclusivos e entrevistas rápidas com o elenco de The Chosen Brasil.</p>
+          <p>Momentos exclusivos e entrevistas rápidas com o elenco.</p>
         </div>
       </a>
     </div>
   </section>
 
-  <!-- ===== APARIÇÕES EM VÍDEOS ===== -->
+  <!-- ===== APARIÇÕES ===== -->
   <section class="appearances">
     <div class="section-header">
-      <h2>Lançamentos & Aparições</h2>
-      <p>Apresentações oficiais de episódios e conteúdos especiais no canal do The Chosen Brasil.</p>
+      <h2>Lançamentos Oficiais</h2>
+      <p>Apresentações de episódios e conteúdos especiais no canal oficial do The Chosen Brasil.</p>
     </div>
 
     <div class="appearances-list">
@@ -1108,7 +1058,7 @@
         </div>
         <div class="appearance-info">
           <h4>Lançamento Episódio T5E2</h4>
-          <p>Apresentação oficial do episódio da Temporada 5 de The Chosen Brasil</p>
+          <p>Apresentação oficial do episódio da Temporada 5</p>
         </div>
         <a href="https://www.youtube.com/watch?v=3IoYs_j27lc" target="_blank" rel="noopener" class="appearance-link">Assistir →</a>
       </div>
@@ -1119,7 +1069,7 @@
         </div>
         <div class="appearance-info">
           <h4>Lançamento Temporada 4</h4>
-          <p>Evento oficial de lançamento da quarta temporada completa</p>
+          <p>Evento oficial de lançamento da quarta temporada</p>
         </div>
         <a href="https://www.youtube.com/watch?v=SnhONwzBzQs" target="_blank" rel="noopener" class="appearance-link">Assistir →</a>
       </div>
@@ -1194,17 +1144,17 @@
 
   <!-- ===== CTA FINAL ===== -->
   <section class="cta-final">
-    <h2>Vamos Conversar?</h2>
+    <h2>Disponível para Palestras & Workshops</h2>
     <p>Se você busca palestras sobre marketing com propósito, gestão de comunidades ou estratégias de conteúdo que geram impacto real, minha agenda está aberta.</p>
     
     <div class="cta-buttons">
-      <a class="btn btn-gold" href="mailto:matheus@thechosen.tv">
-        <span>✉ matheus@thechosen.tv</span>
+      <a class="btn btn-primary" href="mailto:matheus@thechosen.tv">
+        <span>matheus@thechosen.tv</span>
       </a>
-      <a class="btn btn-outline-gold" href="https://www.linkedin.com/in/matheushoracio/" target="_blank" rel="noopener">
+      <a class="btn btn-outline" href="https://www.linkedin.com/in/matheushoracio/" target="_blank" rel="noopener">
         <span>LinkedIn</span>
       </a>
-      <a class="btn btn-outline-gold" href="https://www.instagram.com/matheus.horacio/" target="_blank" rel="noopener">
+      <a class="btn btn-outline" href="https://www.instagram.com/matheus.horacio/" target="_blank" rel="noopener">
         <span>Instagram</span>
       </a>
     </div>
@@ -1213,7 +1163,6 @@
   <!-- ===== FOOTER ===== -->
   <footer>
     <p>© 2025 Matheus Horácio · Gestor de Conteúdo @ <a href="https://osescolhidos.tv/" target="_blank" rel="noopener">The Chosen Brasil</a></p>
-    <p style="margin-top: 12px; font-size: 0.8125rem; opacity: 0.7;">✦ Onde dados encontram propósito, e propósito gera impacto ✦</p>
   </footer>
 </body>
 </html>
