@@ -51,12 +51,166 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px; /* Compensar altura do menu fixo */
+    }
+
     body {
       font-family: 'Roboto', sans-serif;
       color: var(--dark-grey);
       background: var(--bg-light);
       line-height: 1.7;
       overflow-x: hidden;
+    }
+
+    /* ==========================================
+       MENU DE NAVEGAÇÃO FIXO
+    ========================================== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(38, 38, 38, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 16px 24px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      padding: 12px 24px;
+      background: rgba(38, 38, 38, 0.98);
+    }
+
+    .navbar-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .navbar-brand {
+      font-family: 'Lexend', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--cerulean);
+      text-decoration: none;
+      white-space: nowrap;
+      letter-spacing: -0.02em;
+    }
+
+    .navbar-menu {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .navbar-menu a {
+      color: var(--salt);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9375rem;
+      transition: all 0.3s ease;
+      position: relative;
+      font-family: 'Lexend', sans-serif;
+      letter-spacing: 0.3px;
+    }
+
+    .navbar-menu a:hover {
+      color: var(--cerulean);
+    }
+
+    .navbar-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--cerulean);
+      transition: width 0.3s ease;
+    }
+
+    .navbar-menu a:hover::after {
+      width: 100%;
+    }
+
+    /* Menu Mobile */
+    .navbar-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .navbar-toggle span {
+      display: block;
+      width: 28px;
+      height: 3px;
+      background: var(--cerulean);
+      margin: 5px 0;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .navbar-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .navbar-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .navbar-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    @media (max-width: 968px) {
+      .navbar-toggle {
+        display: block;
+      }
+
+      .navbar-menu {
+        position: fixed;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: rgba(38, 38, 38, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        gap: 0;
+        padding: 24px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      }
+
+      .navbar-menu.active {
+        max-height: 600px;
+      }
+
+      .navbar-menu li {
+        width: 100%;
+        text-align: center;
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(1, 184, 175, 0.2);
+      }
+
+      .navbar-menu li:last-child {
+        border-bottom: none;
+      }
+
+      .navbar-menu a {
+        font-size: 1.125rem;
+      }
     }
 
     /* ==========================================
@@ -77,7 +231,7 @@
     /* ==========================================
        COMPONENTES REUTILIZÁVEIS
     ========================================== */
-    .section { padding: 80px 24px; }
+    .section { padding: 100px 24px 80px; } /* Espaçamento extra no topo para compensar menu fixo */
     .container { max-width: 1200px; margin: 0 auto; width: 100%; }
     
     .section-header {
@@ -135,7 +289,7 @@
       background: linear-gradient(180deg, var(--dark-grey) 0%, #1a1a1a 100%);
       display: flex;
       align-items: center;
-      padding: 80px 24px;
+      padding: 120px 24px 80px; /* Padding extra no topo para compensar menu */
       color: var(--white);
       position: relative;
       overflow: hidden;
@@ -274,10 +428,117 @@
     }
     
     /* ==========================================
+       SEÇÃO: CONQUISTAS
+    ========================================== */
+    .achievements {
+      background: var(--bg-light);
+    }
+
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .achievement-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 48px 36px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .achievement-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: var(--cerulean);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .achievement-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(1, 184, 175, 0.2);
+      border-color: var(--cerulean);
+    }
+
+    .achievement-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .achievement-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 24px;
+      background: linear-gradient(135deg, var(--cerulean) 0%, #019a92 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(1, 184, 175, 0.3);
+    }
+
+    .achievement-icon svg {
+      width: 40px;
+      height: 40px;
+      fill: var(--white);
+    }
+
+    .achievement-number {
+      font-family: 'Lexend', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--cerulean);
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+
+    .achievement-label {
+      font-family: 'Lexend', sans-serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--dark-grey);
+      margin-bottom: 8px;
+    }
+
+    .achievement-platform {
+      font-size: 0.9375rem;
+      color: var(--light-grey);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    /* Badge especial para placas do YouTube */
+    .youtube-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%);
+      color: var(--white);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-top: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+    }
+
+    /* ==========================================
        SEÇÃO: JORNADA (TIMELINE)
     ========================================== */
     .journey {
-      background: var(--bg-light);
+      background: var(--white);
     }
 
     .timeline {
@@ -310,7 +571,7 @@
       width: 16px;
       height: 16px;
       background: var(--cerulean);
-      border: 4px solid var(--bg-light);
+      border: 4px solid var(--white);
       border-radius: 50%;
       z-index: 2;
       box-shadow: 0 0 0 2px var(--cerulean);
@@ -376,195 +637,127 @@
       font-size: 0.9375rem;
     }
 
-  /* ==========================================
-   SEÇÃO: CARROSSEL DE FOTOS
-   Otimizado para fotos 1100x600
-========================================== */
-.gallery { 
-  background: var(--white); 
-}
+    /* ==========================================
+       SEÇÃO: CARROSSEL DE FOTOS
+    ========================================== */
+    .gallery { 
+      background: var(--white); 
+    }
 
-.carousel-container { 
-  max-width: 1100px; 
-  margin: 0 auto;
-}
+    .carousel-container { 
+      max-width: 1100px; 
+      margin: 0 auto;
+    }
 
-.carousel {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-  background: var(--dark-grey);
-  width: 100%;
-}
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+      background: var(--dark-grey);
+      width: 100%;
+    }
 
-.carousel-track { 
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  will-change: transform;
-}
+    .carousel-track { 
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      will-change: transform;
+    }
 
-.carousel-slide {
-  min-width: 100%;
-  max-width: 100%;
-  flex-shrink: 0;
-  position: relative;
-  display: block;
-}
+    .carousel-slide {
+      min-width: 100%;
+      max-width: 100%;
+      flex-shrink: 0;
+      position: relative;
+      display: block;
+    }
 
-/* FOTOS 1100x600 - PROPORÇÃO EXATA */
-.carousel-slide img {
-  width: 100%;
-  height: auto; /* ALTURA AUTOMÁTICA - NÃO CORTA NADA */
-  aspect-ratio: 11 / 6; /* PROPORÇÃO EXATA DAS SUAS FOTOS */
-  object-fit: contain; /* MOSTRA FOTO INTEIRA SEM CORTAR */
-  display: block;
-  background-color: var(--dark-grey); /* Cor de fundo se sobrar espaço */
-}
+    .carousel-slide img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 11 / 6;
+      object-fit: contain;
+      display: block;
+      background-color: var(--dark-grey);
+    }
 
-.carousel-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to top, rgba(38, 38, 38, 0.95) 0%, transparent 100%);
-  padding: 32px 28px;
-  color: var(--white);
-  z-index: 2;
-}
+    .carousel-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(38, 38, 38, 0.95) 0%, transparent 100%);
+      padding: 32px 28px;
+      color: var(--white);
+      z-index: 2;
+    }
 
-.carousel-caption p {
-  font-size: 1.125rem;
-  margin: 0;
-  text-align: center;
-  font-weight: 600;
-  font-family: 'Lexend', sans-serif;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-}
+    .carousel-caption p {
+      font-size: 1.125rem;
+      margin: 0;
+      text-align: center;
+      font-weight: 600;
+      font-family: 'Lexend', sans-serif;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
 
-/* BOTÕES DE NAVEGAÇÃO */
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(1, 184, 175, 0.9);
-  border: none;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(1, 184, 175, 0.9);
+      border: none;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
 
-.carousel-btn:hover { 
-  background: var(--cerulean);
-  transform: translateY(-50%) scale(1.1);
-}
+    .carousel-btn:hover { 
+      background: var(--cerulean);
+      transform: translateY(-50%) scale(1.1);
+    }
 
-.carousel-btn svg { 
-  width: 24px; 
-  height: 24px; 
-  fill: var(--white); 
-}
+    .carousel-btn svg { 
+      width: 24px; 
+      height: 24px; 
+      fill: var(--white); 
+    }
 
-.carousel-btn.prev { left: 20px; }
-.carousel-btn.next { right: 20px; }
+    .carousel-btn.prev { left: 20px; }
+    .carousel-btn.next { right: 20px; }
 
-/* DOTS (INDICADORES) */
-.carousel-dots {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
-}
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
 
-.carousel-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--light-grey);
-  border: 2px solid var(--cerulean);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 0;
-}
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--light-grey);
+      border: 2px solid var(--cerulean);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 0;
+    }
 
-.carousel-dot:hover {
-  background: var(--cerulean);
-  transform: scale(1.2);
-}
+    .carousel-dot:hover {
+      background: var(--cerulean);
+      transform: scale(1.2);
+    }
 
-.carousel-dot.active { 
-  background: var(--cerulean); 
-  transform: scale(1.3);
-}
-
-/* ==========================================
-   RESPONSIVIDADE MOBILE
-========================================== */
-
-/* TABLETS */
-@media (max-width: 968px) {
-  .carousel-slide img {
-    aspect-ratio: 11 / 6; /* Mantém proporção */
-  }
-
-  .carousel-caption {
-    padding: 24px 20px;
-  }
-
-  .carousel-caption p {
-    font-size: 1rem;
-  }
-
-  .carousel-btn {
-    width: 42px;
-    height: 42px;
-  }
-
-  .carousel-btn.prev { left: 12px; }
-  .carousel-btn.next { right: 12px; }
-}
-
-/* CELULARES */
-@media (max-width: 640px) {
-  .carousel-slide img {
-    aspect-ratio: 11 / 6; /* MANTÉM PROPORÇÃO ORIGINAL */
-    object-fit: contain; /* MOSTRA FOTO INTEIRA */
-  }
-
-  .carousel-caption {
-    padding: 20px 16px;
-  }
-
-  .carousel-caption p {
-    font-size: 0.9375rem;
-  }
-
-  .carousel-btn {
-    width: 38px;
-    height: 38px;
-  }
-
-  .carousel-btn svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  .carousel-btn.prev { left: 8px; }
-  .carousel-btn.next { right: 8px; }
-}
-
-/* CELULARES MUITO PEQUENOS */
-@media (max-width: 480px) {
-  .carousel-caption p {
-    font-size: 0.875rem;
-  }
-}
+    .carousel-dot.active { 
+      background: var(--cerulean); 
+      transform: scale(1.3);
     }
 
     /* ==========================================
@@ -851,6 +1044,24 @@
       .videos-grid { 
         grid-template-columns: 1fr; 
       }
+      .achievements-grid {
+        grid-template-columns: 1fr;
+      }
+      .carousel-slide img { 
+        aspect-ratio: 11 / 6; 
+      }
+      .carousel-caption {
+        padding: 24px 20px;
+      }
+      .carousel-caption p {
+        font-size: 1rem;
+      }
+      .carousel-btn {
+        width: 42px;
+        height: 42px;
+      }
+      .carousel-btn.prev { left: 12px; }
+      .carousel-btn.next { right: 12px; }
     }
 
     @media (max-width: 640px) {
@@ -858,13 +1069,36 @@
         width: 100%; 
         justify-content: center; 
       }
-      .carousel-slide img { 
-        height: 350px; 
-      }
       .appearance-item { 
         flex-direction: column; 
         text-align: center; 
         gap: 14px; 
+      }
+      .carousel-slide img {
+        aspect-ratio: 11 / 6;
+        object-fit: contain;
+      }
+      .carousel-caption {
+        padding: 20px 16px;
+      }
+      .carousel-caption p {
+        font-size: 0.9375rem;
+      }
+      .carousel-btn {
+        width: 38px;
+        height: 38px;
+      }
+      .carousel-btn svg {
+        width: 20px;
+        height: 20px;
+      }
+      .carousel-btn.prev { left: 8px; }
+      .carousel-btn.next { right: 8px; }
+    }
+
+    @media (max-width: 480px) {
+      .carousel-caption p {
+        font-size: 0.875rem;
       }
     }
   </style>
@@ -873,9 +1107,35 @@
 <body>
 
   <!-- ==========================================
+       MENU DE NAVEGAÇÃO FIXO
+  ========================================== -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="#hero" class="navbar-brand">Matheus Horácio</a>
+      
+      <button class="navbar-toggle" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="navbar-menu">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#conquistas">Conquistas</a></li>
+        <li><a href="#jornada">Jornada</a></li>
+        <li><a href="#estatisticas">Estatísticas</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#entrevistas">Entrevistas</a></li>
+        <li><a href="#lancamentos">Lançamentos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ==========================================
        SEÇÃO: HERO (APRESENTAÇÃO)
   ========================================== -->
-  <header class="hero section">
+  <header id="hero" class="hero section">
     <div class="container hero-content">
       
       <div class="hero-text">
@@ -905,7 +1165,7 @@
        SEÇÃO: SOBRE
   ========================================== -->
   <main>
-    <section class="about section">
+    <section id="sobre" class="about section">
       <div class="container">
         <div class="section-header">
           <h2>Quem sou eu</h2>
@@ -915,7 +1175,6 @@
 
         <p><strong>Como gestor de conteúdo</strong> do The Chosen Brasil, ajudei a série a alcançar mais de 4 milhões de seguidores e a se tornar um fenômeno digital. Liderei os lançamentos das temporadas 3, 4 e 5, sempre equilibrando propósito e performance (e muito café e deadlines).</p>
         
-      
         <div class="highlight-box">
           <p>O melhor marketing não parece marketing. Parece uma conversa entre pessoas que acreditam nas mesmas coisas.</p>
         </div>
@@ -927,9 +1186,75 @@
     </section>
 
     <!-- ==========================================
+         SEÇÃO: CONQUISTAS
+    ========================================== -->
+    <section id="conquistas" class="achievements section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Conquistas</h2>
+          <p>Marcos importantes que refletem o crescimento do The Chosen Brasil nas redes sociais</p>
+        </div>
+
+        <div class="achievements-grid">
+          
+          <!-- Placa 100k YouTube -->
+          <div class="achievement-card">
+            <div class="achievement-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.5,18.78 17.18,18.84C15.88,18.91 14.69,18.94 13.59,18.94L12,19C7.81,19 5.2,18.84 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.31,16.36 2.22,15.73 2.16,14.93C2.09,14.13 2.06,13.44 2.06,12.84L2,12C2,9.81 2.16,8.2 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.31 5.5,5.22 6.82,5.16C8.12,5.09 9.31,5.06 10.41,5.06L12,5C16.19,5 18.8,5.16 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z"/>
+              </svg>
+            </div>
+            <div class="achievement-number">100k</div>
+            <div class="achievement-label">Inscritos</div>
+            <div class="achievement-platform">YouTube</div>
+            <span class="youtube-badge">🏆 Placa Prata</span>
+          </div>
+
+          <!-- Placa 1M YouTube -->
+          <div class="achievement-card">
+            <div class="achievement-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.5,18.78 17.18,18.84C15.88,18.91 14.69,18.94 13.59,18.94L12,19C7.81,19 5.2,18.84 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.31,16.36 2.22,15.73 2.16,14.93C2.09,14.13 2.06,13.44 2.06,12.84L2,12C2,9.81 2.16,8.2 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.31 5.5,5.22 6.82,5.16C8.12,5.09 9.31,5.06 10.41,5.06L12,5C16.19,5 18.8,5.16 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z"/>
+              </svg>
+            </div>
+            <div class="achievement-number">1M+</div>
+            <div class="achievement-label">Inscritos</div>
+            <div class="achievement-platform">YouTube</div>
+            <span class="youtube-badge">🏆 Placa Ouro</span>
+          </div>
+
+          <!-- 3M Instagram -->
+          <div class="achievement-card">
+            <div class="achievement-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/>
+              </svg>
+            </div>
+            <div class="achievement-number">3M+</div>
+            <div class="achievement-label">Seguidores</div>
+            <div class="achievement-platform">Instagram</div>
+          </div>
+
+          <!-- 1M Facebook -->
+          <div class="achievement-card">
+            <div class="achievement-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/>
+              </svg>
+            </div>
+            <div class="achievement-number">1M+</div>
+            <div class="achievement-label">Seguidores</div>
+            <div class="achievement-platform">Facebook</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
          SEÇÃO: JORNADA
     ========================================== -->
-    <section class="journey section">
+    <section id="jornada" class="journey section">
       <div class="container">
         <div class="section-header">
           <h2>Minha História no The Chosen</h2>
@@ -943,7 +1268,7 @@
             <div class="timeline-content">
               <span class="timeline-year">2020</span>
               <h3>Tudo começou como fã: Vou contar pra todo mundo</h3>
-              <p>Conheci The Chosen. E algo dentro de mim mudou. Não foi só uma série, foi um chamado. Fiquei tão tocado que criei uma página no Instagram para compartilhar a série com o mundo. Era impossível guardar aquilo só pra mim. Foram mais de 80 posts em poucas semanas, feitos à noite, de dia, de madrugada, com o coração ardendo. Nada pago, nada planejado. Apenas um desejo genuíno de multiplicar o que havia recebido. E assim começaram meus “cinco pães e dois peixinhos”.</p>
+              <p>Conheci The Chosen. E algo dentro de mim mudou. Não foi só uma série, foi um chamado. Fiquei tão tocado que criei uma página no Instagram para compartilhar a série com o mundo. Era impossível guardar aquilo só pra mim. Foram mais de 80 posts em poucas semanas, feitos à noite, de dia, de madrugada, com o coração ardendo. Nada pago, nada planejado. Apenas um desejo genuíno de multiplicar o que havia recebido. E assim começaram meus "cinco pães e dois peixinhos".</p>
             </div>
           </div>
 
@@ -970,7 +1295,7 @@
             <div class="timeline-content">
               <span class="timeline-year">Hoje</span>
               <h3>De fã a líder de uma missão: Acostume-se com o diferente</h3>
-              <p>De lá pra cá, a jornada só cresceu. Hoje lidero um time incrível de sete pessoas e ajudo a conduzir lançamentos que marcaram a história da série no Brasil. Construímos juntos uma comunidade com mais de 4 milhões de seguidores, apaixonados por essa história que continua transformando vidas. Olho pra trás e vejo: tudo começou com um simples “sim”. Com poucos pães e peixes, e um coração disposto. E descobri que, quando você entrega o pouco com fé e ousadia, o extraordinário acontece.</p>
+              <p>De lá pra cá, a jornada só cresceu. Hoje lidero um time incrível de sete pessoas e ajudo a conduzir lançamentos que marcaram a história da série no Brasil. Construímos juntos uma comunidade com mais de 4 milhões de seguidores, apaixonados por essa história que continua transformando vidas. Olho pra trás e vejo: tudo começou com um simples "sim". Com poucos pães e peixes, e um coração disposto. E descobri que, quando você entrega o pouco com fé e ousadia, o extraordinário acontece.</p>
             </div>
           </div>
 
@@ -981,7 +1306,7 @@
     <!-- ==========================================
          SEÇÃO: ESTATÍSTICAS
     ========================================== -->
-    <section class="stats section">
+    <section id="estatisticas" class="stats section">
       <div class="container stats-grid">
         <div class="stat-item">
           <h3>+10</h3>
@@ -1000,9 +1325,8 @@
 
     <!-- ==========================================
          SEÇÃO: CARROSSEL DE FOTOS
-         INSTRUÇÕES: Substitua YOUR-PHOTO-1.jpg pelos nomes das suas fotos
     ========================================== -->
-    <section class="gallery section">
+    <section id="galeria" class="gallery section">
       <div class="container">
         <div class="section-header">
           <h2>Momentos Especiais</h2>
@@ -1012,92 +1336,92 @@
         <div class="carousel-container">
           <div class="carousel">
             <div class="carousel-track">
-  
-  <div class="carousel-slide">
-    <img src="foto1.jpg" alt="Momento 1">
-    <div class="carousel-caption">
-      <p>Matheus Horácio e Jonathan Roumie (Jesus em The Chosen)</p>
-    </div>
-  </div>
+              
+              <div class="carousel-slide">
+                <img src="foto1.jpg" alt="Momento 1">
+                <div class="carousel-caption">
+                  <p>Matheus Horácio e Jonathan Roumie (Jesus em The Chosen)</p>
+                </div>
+              </div>
 
-  <div class="carousel-slide">
-    <img src="foto2.jpg" alt="Momento 2">
-    <div class="carousel-caption">
-      <p>Matheus Horácio, Shahar Isaac (Pedro), Abe Bueno Jallad (Tiagão), Vanessa Benavente (Maria Mãe) e Jey Reis</p>
-    </div>
-  </div>
+              <div class="carousel-slide">
+                <img src="foto2.jpg" alt="Momento 2">
+                <div class="carousel-caption">
+                  <p>Matheus Horácio, Jey Reis, Vanessa Benavente (Maria Mãe), Shahar Isaac (Pedro) e Abe Bueno Jallad</p>
+                </div>
+              </div>
 
-  <div class="carousel-slide">
-    <img src="foto3.jpg" alt="Momento 3">
-    <div class="carousel-caption">
-      <p>Matheus Horácio e Roteiristas de The Chosen, Ryan Swanson e Tyler Thompson</p>
-    </div>
-  </div>
+              <div class="carousel-slide">
+                <img src="foto3.jpg" alt="Momento 3">
+                <div class="carousel-caption">
+                  <p>Matheus Horácio e Roteiristas de The Chosen, Ryan Swanson e Tyler Thompson</p>
+                </div>
+              </div>
 
-  <div class="carousel-slide">
-    <img src="foto4.jpg" alt="Momento 4">
-    <div class="carousel-caption">
-      <p>Matheus Horácio e Paras Patel (Mateus em The Chosen)</p>
-    </div>
-  </div>
+              <div class="carousel-slide">
+                <img src="foto4.jpg" alt="Momento 4">
+                <div class="carousel-caption">
+                  <p>Matheus Horácio e Paras Patel (Mateus em The Chosen)</p>
+                </div>
+              </div>
 
-  <div class="carousel-slide">
-    <img src="foto5.jpg" alt="Momento 5">
-    <div class="carousel-caption">
-      <p>Matheus Horácio, Jey Reis e Luke Dimyan (Judas Iscariotes em The Chosen)</p>
-    </div>
-  </div>
+              <div class="carousel-slide">
+                <img src="foto5.jpg" alt="Momento 5">
+                <div class="carousel-caption">
+                  <p>Matheus Horácio, Jey Reis e Luke Dimyan (Judas Iscariotes em The Chosen)</p>
+                </div>
+              </div>
 
-  <div class="carousel-slide">
-    <img src="foto9.jpg" alt="Momento 6">
-    <div class="carousel-caption">
-      <p>Matheus Horácio, Diógenes Cavalcante e Dallas Jenkins (Diretor de The Chosen)</p>
-    </div>
-  </div>
+              <div class="carousel-slide">
+                <img src="foto9.jpg" alt="Momento 6">
+                <div class="carousel-caption">
+                  <p>Matheus Horácio, Diógenes Cavalcante e Dallas Jenkins (Diretor de The Chosen)</p>
+                </div>
+              </div>
 
-  <div class="carousel-slide">
-    <img src="foto7.jpg" alt="Momento 7">
-    <div class="carousel-caption">
-      <p>Matheus Horácio, Equipe The Chosen Brasil, Jonathan Roumie e Paras Patel no Cristo Redentor</p>
-    </div>
-  </div>
+              <div class="carousel-slide">
+                <img src="foto7.jpg" alt="Momento 7">
+                <div class="carousel-caption">
+                  <p>Matheus Horácio, Equipe The Chosen Brasil, Jonathan Roumie e Paras Patel no Cristo Redentor</p>
+                </div>
+              </div>
 
-  <div class="carousel-slide">
-    <img src="foto8.jpg" alt="Momento 8">
-    <div class="carousel-caption">
-      <p>Matheus Horácio, Equipe The Chosen Brasil, Jonathan Roumie, Paras Patel e Lara Silva em São Paulo</p>
-    </div>
-  </div>
+              <div class="carousel-slide">
+                <img src="foto8.jpg" alt="Momento 8">
+                <div class="carousel-caption">
+                  <p>Matheus Horácio, Equipe The Chosen Brasil, Jonathan Roumie, Paras Patel e Lara Silva em São Paulo</p>
+                </div>
+              </div>
 
-  <div class="carousel-slide">
-    <img src="foto10.jpg" alt="Momento 9">
-    <div class="carousel-caption">
-      <p>Matheus Horácio e Derral Eves (Cofundador e Produtor Executivo do The Chosen)</p>
-    </div>
-  </div>
+              <div class="carousel-slide">
+                <img src="foto10.jpg" alt="Momento 9">
+                <div class="carousel-caption">
+                  <p>Matheus Horácio e Derral Eves</p>
+                </div>
+              </div>
 
-  <div class="carousel-slide">
-    <img src="foto11.jpg" alt="Momento 10">
-    <div class="carousel-caption">
-      <p>Matheus Horácio no Jesus Vira Verão 2024</p>
-    </div>
-  </div>
+              <div class="carousel-slide">
+                <img src="foto11.jpg" alt="Momento 10">
+                <div class="carousel-caption">
+                  <p>Matheus Horácio no Jesus Vira Verão 2024</p>
+                </div>
+              </div>
 
-  <div class="carousel-slide">
-    <img src="foto12.jpg" alt="Momento 11">
-    <div class="carousel-caption">
-      <p>Matheus Horácio e Jey Reis no set de filmagens do The Chosen em Midlothian, Texas</p>
-    </div>
-  </div>
+              <div class="carousel-slide">
+                <img src="foto12.jpg" alt="Momento 11">
+                <div class="carousel-caption">
+                  <p>Matheus Horácio e Jey Reis</p>
+                </div>
+              </div>
 
-  <div class="carousel-slide">
-    <img src="foto13.jpg" alt="Momento 12">
-    <div class="carousel-caption">
-      <p>Matheus Horácio, Julie Molina, Maria Luisa Rocha, Elena Russell-Nava, Kyle Young, Dallas Jenkins, Amanda Jenkins, Jey Reis e Equipe The Chosen Brasil</p>
-    </div>
-  </div>
+              <div class="carousel-slide">
+                <img src="foto13.jpg" alt="Momento 12">
+                <div class="carousel-caption">
+                  <p>Matheus Horácio, Julie Molina, Maria Luisa Rocha, Elena Russell-Nava, Kyle Young, Dallas Jenkins, Amanda Jenkins, Jey Reis e Equipe The Chosen Brasil</p>
+                </div>
+              </div>
 
-</div>
+            </div>
 
             <button class="carousel-btn prev" aria-label="Anterior">
               <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
@@ -1115,7 +1439,7 @@
     <!-- ==========================================
          SEÇÃO: ENTREVISTAS
     ========================================== -->
-    <section class="interviews section">
+    <section id="entrevistas" class="interviews section">
       <div class="container">
         <div class="section-header">
           <h2>Entrevistas</h2>
@@ -1188,7 +1512,7 @@
     <!-- ==========================================
          SEÇÃO: APARIÇÕES
     ========================================== -->
-    <section class="appearances section">
+    <section id="lancamentos" class="appearances section">
       <div class="container">
         <div class="section-header">
           <h2>Lançamentos Oficiais</h2>
@@ -1276,7 +1600,7 @@
     <!-- ==========================================
          SEÇÃO: CTA FINAL
     ========================================== -->
-    <section class="cta-final section">
+    <section id="contato" class="cta-final section">
       <div class="container">
         <h2>Disponível para Palestras & Workshops</h2>
         <p>Se você busca palestras sobre marketing com propósito, gestão de comunidades ou estratégias de conteúdo que geram impacto real, minha agenda está aberta.</p>
@@ -1299,9 +1623,56 @@
   </footer>
 
   <!-- ==========================================
-       JAVASCRIPT: CARROSSEL
+       JAVASCRIPT: MENU + CARROSSEL
   ========================================== -->
   <script>
+  // ==================== MENU MOBILE ====================
+  (function() {
+    const toggle = document.querySelector('.navbar-toggle');
+    const menu = document.querySelector('.navbar-menu');
+    const menuLinks = document.querySelectorAll('.navbar-menu a');
+
+
+    // Toggle menu
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('active');
+      menu.classList.toggle('active');
+    });
+
+    // Fechar menu ao clicar em link
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        toggle.classList.remove('active');
+        menu.classList.remove('active');
+      });
+    });
+
+    // Fechar menu ao clicar fora
+    document.addEventListener('click', (e) => {
+      if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+        toggle.classList.remove('active');
+        menu.classList.remove('active');
+      }
+    });
+
+    // Navbar scroll effect
+    const navbar = document.querySelector('.navbar');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+
+      lastScroll = currentScroll;
+    });
+  })();
+
+  // ==================== CARROSSEL ====================
   (function() {
     const track = document.querySelector('.carousel-track');
     if (!track) return;
