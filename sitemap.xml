@@ -1,8 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Página Principal - Português (BR) -->
   <url>
     <loc>https://matheushoracio.com.br/</loc>
+    <lastmod>2025-11-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt-br" href="https://matheushoracio.com.br/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://matheushoracio.com.br/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://matheushoracio.com.br/?lang=es"/>
   </url>
+  
+  <!-- Versão em Inglês -->
+  <url>
+    <loc>https://matheushoracio.com.br/?lang=en</loc>
+    <lastmod>2025-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt-br" href="https://matheushoracio.com.br/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://matheushoracio.com.br/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://matheushoracio.com.br/?lang=es"/>
+  </url>
+  
+  <!-- Versão em Espanhol -->
+  <url>
+    <loc>https://matheushoracio.com.br/?lang=es</loc>
+    <lastmod>2025-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt-br" href="https://matheushoracio.com.br/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://matheushoracio.com.br/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://matheushoracio.com.br/?lang=es"/>
+  </url>
+  
 </urlset>
