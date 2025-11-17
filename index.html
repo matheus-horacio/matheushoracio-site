@@ -376,52 +376,31 @@ body {
   }
   
   .navbar-toggle span {
-    width: 26px;
-    height: 3px;
-  }
-
-  .navbar-menu {
-    position: fixed;
-    top: 52px;
-    left: 0;
-    right: 0;
-    background: rgba(38, 38, 38, 0.98);
-    backdrop-filter: blur(10px);
-    flex-direction: column;
-    gap: 0;
-    padding: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-    box-shadow: none;
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  .navbar-menu.active {
-  max-height: 800px; /* AUMENTEI DE 600px PARA 800px */
-  padding: 20px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  opacity: 1;
-  visibility: visible;
-  overflow-y: auto; /* ADICIONEI SCROLL SE PRECISAR */
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--cerulean);
+  margin: 4px 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+  position: relative;
 }
 
-  .navbar-menu li {
-    width: 100%;
-    text-align: center;
-    padding: 14px 0;
-    border-bottom: 1px solid rgba(1, 184, 175, 0.2);
-  }
+.navbar-toggle.active span:nth-child(1) {
+  transform: rotate(45deg);
+  position: absolute;
+  top: 10px;
+}
 
-  .navbar-menu li:last-child {
-    border-bottom: none;
-  }
+.navbar-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
 
-  .navbar-menu a {
-    font-size: 1.0625rem;
-  }
-
+.navbar-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 10px;
+}
   .language-selector {
   margin-top: 10px;
   justify-content: center;
