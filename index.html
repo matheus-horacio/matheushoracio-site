@@ -422,17 +422,43 @@ body {
   }
 
   .language-selector {
-    margin-top: 10px;
-    justify-content: center;
-  }
+  margin-top: 10px;
+  justify-content: center;
+  width: 100%;
+}
 
-  .language-dropdown {
-    position: static;
-    margin-top: 12px;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-  }
+.language-btn {
+  width: 100%;
+  max-width: 200px;
+  padding: 12px 20px;
+  justify-content: center;
+  font-size: 1rem;
+  min-height: 48px; /* Área de toque mínima */
+}
+
+.language-dropdown {
+  position: static;
+  margin-top: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transform: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.language-dropdown.active {
+  opacity: 1;
+  visibility: visible;
+  max-height: 200px;
+}
+
+.language-option {
+  padding: 16px 20px;
+  font-size: 1rem;
+  min-height: 48px;
+  justify-content: center;
+}
   
   /* HERO MOBILE */
   .hero {
@@ -2314,7 +2340,7 @@ function translatePage(lang) {
   });
 }
 
-// ==================== INICIALIZAÇÃO DE IDIOMA (CORRIGIDA) ====================
+// ==================== INICIALIZAÇÃO DE IDIOMA ====================
 (function() {
   // Detectar idioma salvo ou idioma do navegador
   const savedLang = localStorage.getItem('preferred-language') 
@@ -2328,23 +2354,28 @@ function translatePage(lang) {
   
   // Toggle dropdown ao clicar no botão
   languageBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     e.stopPropagation();
     languageDropdown.classList.toggle('active');
   });
   
   // Trocar idioma ao clicar nas opções
   languageOptions.forEach(option => {
-    option.addEventListener('click', () => {
+    option.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       const lang = option.getAttribute('data-lang');
       translatePage(lang);
       languageDropdown.classList.remove('active');
     });
   });
   
-  // Fechar dropdown ao clicar fora
+  // Fechar dropdown ao clicar fora (apenas desktop)
   document.addEventListener('click', (e) => {
-    if (!e.target.closest('.language-selector')) {
-      languageDropdown.classList.remove('active');
+    if (window.innerWidth > 968) {
+      if (!e.target.closest('.language-selector')) {
+        languageDropdown.classList.remove('active');
+      }
     }
   });
 })();
